@@ -345,7 +345,7 @@
 
         ru {
             bindings = <
-           &kp    &kp    &kp        &kp                      &kp                     &kp Y               &kp U            &kp I      &kp O    &layer_tap_p 2 0
+           &kp Й  &kp Ц  &kp У      &kp К                    &kp Е                   &kp Y               &kp U            &kp I      &kp O    &layer_tap_p 2 0
            &kp A  &kp S  &kp D      &kp F                    &kp G                   &kp H               &kp J            &kp K      &kp L    &lt 2 SEMICOLON
 &kp POUND  &kp Z  &kp X  &kp C      &kp V                    &kp B                   &kp N               &td_m            &kp COMMA  &kp DOT  &layer_tap_at_am 2 0  &kp SINGLE_QUOTE
                          &td_ddots  &layer_tap_num_dots 3 0  &mt LEFT_SHIFT SPACE    &mt LCTRL KP_ENTER  &td_comma_enter  &td_marks
