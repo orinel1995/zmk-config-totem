@@ -70,7 +70,7 @@
 
         alt_tab {
             bindings = <&kp LA(TAB)>;
-            key-positions = <3 4>;
+            key-positions = <4 25>;
         };
     };
 
@@ -165,7 +165,7 @@
             #binding-cells = <0>;
             bindings = <&kp M>, <&kp RIGHT_BRACKET>;
 
-            tapping-term-ms = <150>;
+            tapping-term-ms = <200>;
         };
 
         td_at_am: td_at_am {
@@ -336,37 +336,28 @@
 
         eu {
             bindings = <
-            &kp Q  &kp W  &kp E      &kp R                    &kp T                   &kp Y               &kp U            &kp I      &kp O    &layer_tap_p 2 0
-            &kp A  &kp S  &kp D      &kp F                    &kp G                   &kp H               &kp J            &kp K      &kp L    &lt 2 SEMICOLON
-&lt 1 HASH  &kp Z  &kp X  &kp C      &kp V                    &kp B                   &kp N               &td_m            &kp COMMA  &kp DOT  &layer_tap_at_am 2 0  &kp SINGLE_QUOTE
-                          &td_ddots  &layer_tap_num_dots 3 0  &mt LEFT_SHIFT SPACE    &mt LCTRL KP_ENTER  &td_comma_enter  &td_marks
-            >;
-        };
-
-        ru {
-            bindings = <
-           &kp Й  &kp Ц  &kp У      &kp К                    &kp Е                   &kp Y               &kp U            &kp I      &kp O    &layer_tap_p 2 0
-           &kp A  &kp S  &kp D      &kp F                    &kp G                   &kp H               &kp J            &kp K      &kp L    &lt 2 SEMICOLON
-&kp POUND  &kp Z  &kp X  &kp C      &kp V                    &kp B                   &kp N               &td_m            &kp COMMA  &kp DOT  &layer_tap_at_am 2 0  &kp SINGLE_QUOTE
-                         &td_ddots  &layer_tap_num_dots 3 0  &mt LEFT_SHIFT SPACE    &mt LCTRL KP_ENTER  &td_comma_enter  &td_marks
+            &kp Q  &kp W  &kp E      &kp R                    &kp T                   &kp Y               &kp U            &kp I      &kp O    &kp P
+            &kp A  &kp S  &kp D      &kp F                    &kp G                   &kp H               &kp J            &kp K      &kp L    &kp SEMICOLON
+&lt 2 HASH  &kp Z  &kp X  &kp C      &kp V                    &kp B                   &kp N               &td_m            &kp COMMA  &kp DOT  &kp LEFT_BRACKET  &lt 1 SQT
+                          &td_ddots  &layer_tap_num_dots 2 0  &mt LEFT_SHIFT SPACE    &mt LCTRL KP_ENTER  &td_comma_enter  &td_marks
             >;
         };
 
         sym {
             bindings = <
-           &kp SLASH      &kp PLUS   &kp ASTERISK       &kp MINUS         &kp LEFT_BRACKET        &kp RIGHT_BRACKET      &kp LESS_THAN         &td_und_upp     &kp GREATER_THAN  &trans
-           &kp PIPE       &kp GRAVE  &kp DOUBLE_QUOTES  &kp SINGLE_QUOTE  &kp LEFT_PARENTHESIS    &kp RIGHT_PARENTHESIS  &kp LEFT_ARROW        &kp UP_ARROW    &kp RIGHT_ARROW   &trans
-&kp POUND  &kp BACKSLASH  &kp CARET  &kp DOLLAR         &kp PERCENT       &kp LEFT_BRACE          &kp RIGHT_BRACE        &kp LC(Z)             &kp DOWN_ARROW  &kp LC(Y)         &trans  &trans
-                                     &trans             &trans            &trans                  &trans                 &select_current_word  &trans
+           &kp SLASH      &kp PLUS       &kp ASTERISK       &kp MINUS         &kp LEFT_BRACKET        &kp RIGHT_BRACKET      &kp LESS_THAN         &td_und_upp     &kp GREATER_THAN  &trans
+           &kp PIPE       &kp GRAVE      &kp DOUBLE_QUOTES  &kp SINGLE_QUOTE  &kp LEFT_PARENTHESIS    &kp RIGHT_PARENTHESIS  &kp LEFT_ARROW        &kp UP_ARROW    &kp RIGHT_ARROW   &trans
+&kp POUND  &kp BACKSLASH  &kp AMPERSAND  &kp DOLLAR         &kp PERCENT       &kp LEFT_BRACE          &kp RIGHT_BRACE        &kp LC(Z)             &kp DOWN_ARROW  &kp LC(Y)         &trans  &trans
+                                         &trans             &trans            &trans                  &trans                 &select_current_word  &trans
             >;
         };
 
         num {
             bindings = <
-               &mc_div  &mc_add  &mc_mult  &mc_min  &td_equal    &kp RIGHT_BRACKET      &td_less_eq           &td_und_upp     &td_more_eq      &none
-               &kp N0   &kp N1   &kp N2    &kp N3   &kp N4       &kp RIGHT_PARENTHESIS  &kp LEFT_ARROW        &kp UP_ARROW    &kp RIGHT_ARROW  &none
-&td_dot_comma  &kp N5   &kp N6   &kp N7    &kp N8   &kp N9       &kp RIGHT_BRACE        &kp LC(Z)             &kp DOWN_ARROW  &kp LC(Y)        &none  &trans
-                                 &trans    &trans   &trans       &trans                 &select_current_word  &trans
+        &mc_div  &mc_add  &mc_mult       &mc_min  &td_equal    &kp RIGHT_BRACKET      &td_less_eq           &td_und_upp     &td_more_eq      &none
+        &kp N0   &kp N1   &kp N2         &kp N3   &kp N4       &kp RIGHT_PARENTHESIS  &kp LEFT_ARROW        &kp UP_ARROW    &kp RIGHT_ARROW  &none
+&trans  &kp N5   &kp N6   &kp N7         &kp N8   &kp N9       &kp RIGHT_BRACE        &kp LC(Z)             &kp DOWN_ARROW  &kp LC(Y)        &none  &trans
+                          &kp LS(LG(S))  &trans   &kp LC(S)    &trans                 &select_current_word  &trans
             >;
         };
     };
