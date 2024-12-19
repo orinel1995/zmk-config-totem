@@ -78,6 +78,16 @@
             bindings = <&kp LA(LEFT_SHIFT)>;
             key-positions = <1 8>;
         };
+
+        save {
+            bindings = <&kp LC(S)>;
+            key-positions = <25 24>;
+        };
+
+        alt_tab {
+            bindings = <&kp LA(TAB)>;
+            key-positions = <3 4>;
+        };
     };
 
     behaviors {
