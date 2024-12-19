@@ -30,13 +30,13 @@
         };
 
         copy {
-            bindings = <&kp K_COPY>;
+            bindings = <&kp LC(C)>;
             key-positions = <12 13>;
         };
 
         paste {
-            bindings = <&kp K_PASTE>;
-            key-positions = <13 14>;
+            bindings = <&kp LC(V)>;
+            key-positions = <23 24>;
         };
 
         cut {
@@ -51,14 +51,14 @@
 
         delete {
             bindings = <&kp DELETE>;
-            key-positions = <24 25>;
+            key-positions = <13 14>;
             timeout-ms = <50>;
             layers = <0>;
         };
 
         backspace {
             bindings = <&kp BACKSPACE>;
-            key-positions = <26 27>;
+            key-positions = <15 16>;
             timeout-ms = <50>;
             layers = <0>;
         };
@@ -106,8 +106,8 @@
             compatible = "zmk,behavior-tap-dance";
             label = "TD_COMMA_ENTER";
             #binding-cells = <0>;
-            tapping-term-ms = <350>;
-            bindings = <&kp COMMA>, <&mc_comma_space>, <&mc_comma_enter>;
+            tapping-term-ms = <300>;
+            bindings = <&kp COMMA>, <&mc_comma_enter>;
         };
 
         layer_tap_p: layer_tap_p {
@@ -140,7 +140,7 @@
             compatible = "zmk,behavior-tap-dance";
             label = "TD_MARKS";
             #binding-cells = <0>;
-            tapping-term-ms = <300>;
+            tapping-term-ms = <250>;
             bindings = <&kp EXCLAMATION>, <&kp QUESTION>;
         };
 
@@ -226,6 +226,30 @@
             tapping-term-ms = <300>;
             bindings = <&kp EQUAL>, <&mc_unequal>;
         };
+
+        td_less_eq: td_less_eq {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TD_LESS_EQ";
+            #binding-cells = <0>;
+            tapping-term-ms = <300>;
+            bindings = <&kp LESS_THAN>, <&mc_less_eq>;
+        };
+
+        td_more_eq: td_more_eq {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TD_MORE_EQ";
+            #binding-cells = <0>;
+            tapping-term-ms = <300>;
+            bindings = <&kp GREATER_THAN>, <&mc_more_eq>;
+        };
+
+        td_und_upp: td_und_upp {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TD_UND_UPP";
+            #binding-cells = <0>;
+            tapping-term-ms = <300>;
+            bindings = <&kp CARET>, <&kp UNDERSCORE>;
+        };
     };
 
     macros {
@@ -291,35 +315,58 @@
             bindings = <&kp SPACE &kp MINUS &kp SPACE>;
             label = "MC_MIN";
         };
+
+        mc_more_eq: mc_more_eq {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp SPACE &kp GREATER_THAN &kp EQUAL &kp SPACE>;
+            label = "MC_MORE_EQ";
+        };
+
+        mc_less_eq: mc_less_eq {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp SPACE &kp LESS_THAN &kp EQUAL &kp SPACE>;
+            label = "MC_LESS_EQ";
+        };
     };
 
     keymap {
         compatible = "zmk,keymap";
 
-        main {
+        eu {
             bindings = <
-           &kp Q  &kp W  &kp E      &kp R                    &kp T                   &kp Y               &kp U            &kp I      &kp O    &layer_tap_p 1 0
-           &kp A  &kp S  &kp D      &kp F                    &kp G                   &kp H               &kp J            &kp K      &kp L    &lt 1 SEMICOLON
-&kp POUND  &kp Z  &kp X  &kp C      &kp V                    &kp B                   &kp N               &td_m            &kp COMMA  &kp DOT  &layer_tap_at_am 1 0  &kp SINGLE_QUOTE
-                         &td_ddots  &layer_tap_num_dots 2 0  &mt LEFT_SHIFT SPACE    &mt LCTRL KP_ENTER  &td_comma_enter  &td_marks
+           &kp Q  &kp W  &kp E      &kp R                    &kp T                   &kp Y               &kp U            &kp I      &kp O    &layer_tap_p 2 0
+           &kp A  &kp S  &kp D      &kp F                    &kp G                   &kp H               &kp J            &kp K      &kp L    &lt 2 SEMICOLON
+&kp POUND  &kp Z  &kp X  &kp C      &kp V                    &kp B                   &kp N               &td_m            &kp COMMA  &kp DOT  &layer_tap_at_am 2 0  &kp SINGLE_QUOTE
+                         &td_ddots  &layer_tap_num_dots 3 0  &mt LEFT_SHIFT SPACE    &mt LCTRL KP_ENTER  &td_comma_enter  &td_marks
             >;
         };
 
-        symbols {
+        ru {
             bindings = <
-           &kp SLASH      &kp PLUS   &kp ASTERISK       &kp MINUS         &kp LEFT_BRACKET        &kp RIGHT_BRACKET      &kp LESS_THAN         &kp CARET       &kp GREATER_THAN  &trans
+           &kp Q  &kp W  &kp E      &kp R                    &kp T                   &kp Y               &kp U            &kp I      &kp O    &layer_tap_p 2 0
+           &kp A  &kp S  &kp D      &kp F                    &kp G                   &kp H               &kp J            &kp K      &kp L    &lt 2 SEMICOLON
+&kp POUND  &kp Z  &kp X  &kp C      &kp V                    &kp B                   &kp N               &td_m            &kp COMMA  &kp DOT  &layer_tap_at_am 2 0  &kp SINGLE_QUOTE
+                         &td_ddots  &layer_tap_num_dots 3 0  &mt LEFT_SHIFT SPACE    &mt LCTRL KP_ENTER  &td_comma_enter  &td_marks
+            >;
+        };
+
+        sym {
+            bindings = <
+           &kp SLASH      &kp PLUS   &kp ASTERISK       &kp MINUS         &kp LEFT_BRACKET        &kp RIGHT_BRACKET      &kp LESS_THAN         &td_und_upp     &kp GREATER_THAN  &trans
            &kp PIPE       &kp GRAVE  &kp DOUBLE_QUOTES  &kp SINGLE_QUOTE  &kp LEFT_PARENTHESIS    &kp RIGHT_PARENTHESIS  &kp LEFT_ARROW        &kp UP_ARROW    &kp RIGHT_ARROW   &trans
 &kp POUND  &kp BACKSLASH  &kp CARET  &kp DOLLAR         &kp PERCENT       &kp LEFT_BRACE          &kp RIGHT_BRACE        &kp LC(Z)             &kp DOWN_ARROW  &kp LC(Y)         &trans  &trans
                                      &trans             &trans            &trans                  &trans                 &select_current_word  &trans
             >;
         };
 
-        numbers {
+        num {
             bindings = <
-               &mc_div  &mc_add  &mc_mult  &mc_min  &td_equal    &none   &trans                &trans          &trans           &none
-               &kp N0   &kp N1   &kp N2    &kp N3   &kp N4       &none   &kp LEFT_ARROW        &kp UP_ARROW    &kp RIGHT_ARROW  &none
-&td_dot_comma  &kp N5   &kp N6   &kp N7    &kp N8   &kp N9       &none   &none                 &kp DOWN_ARROW  &none            &none  &trans
-                                 &trans    &trans   &trans       &trans  &select_current_word  &trans
+               &mc_div  &mc_add  &mc_mult  &mc_min  &td_equal    &kp RIGHT_BRACKET      &td_less_eq           &td_und_upp     &td_more_eq      &none
+               &kp N0   &kp N1   &kp N2    &kp N3   &kp N4       &kp RIGHT_PARENTHESIS  &kp LEFT_ARROW        &kp UP_ARROW    &kp RIGHT_ARROW  &none
+&td_dot_comma  &kp N5   &kp N6   &kp N7    &kp N8   &kp N9       &kp RIGHT_BRACE        &kp LC(Z)             &kp DOWN_ARROW  &kp LC(Y)        &none  &trans
+                                 &trans    &trans   &trans       &trans                 &select_current_word  &trans
             >;
         };
     };
