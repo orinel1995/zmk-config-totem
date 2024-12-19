@@ -24,20 +24,20 @@
 
         combo_esc {
             timeout-ms = <50>;
-            key-positions = <0 1>;
+            key-positions = <1 2>;
             bindings = <&kp ESC>;
             layers = <0>;
         };
 
         select_all {
             bindings = <&kp LC(A)>;
-            key-positions = <10 11>;
+            key-positions = <11 12>;
             layers = <0>;
         };
 
         undo {
             bindings = <&kp LC(Z)>;
-            key-positions = <21 22>;
+            key-positions = <4 25>;
         };
 
         copy {
@@ -47,7 +47,7 @@
 
         paste {
             bindings = <&kp K_PASTE>;
-            key-positions = <23 24>;
+            key-positions = <13 14>;
         };
 
         cut {
@@ -62,14 +62,14 @@
 
         delete {
             bindings = <&kp DELETE>;
-            key-positions = <8 9>;
+            key-positions = <24 25>;
             timeout-ms = <50>;
             layers = <0>;
         };
 
         backspace {
             bindings = <&kp BACKSPACE>;
-            key-positions = <6 7>;
+            key-positions = <26 27>;
             timeout-ms = <50>;
             layers = <0>;
         };
@@ -79,9 +79,9 @@
             key-positions = <1 8>;
         };
 
-        save {
-            bindings = <&kp LC(S)>;
-            key-positions = <25 24>;
+        do {
+            bindings = <&kp LC(Y)>;
+            key-positions = <5 26>;
         };
 
         alt_tab {
@@ -104,7 +104,7 @@
             compatible = "zmk,behavior-tap-dance";
             label = "TD_SQ_BRACKET";
             #binding-cells = <0>;
-            tapping-term-ms = <200>;
+            tapping-term-ms = <300>;
             bindings = <&kp LEFT_BRACKET>, <&kp RIGHT_BRACKET>;
         };
 
@@ -122,8 +122,8 @@
             compatible = "zmk,behavior-tap-dance";
             label = "TD_COMMA_ENTER";
             #binding-cells = <0>;
-            tapping-term-ms = <200>;
-            bindings = <&kp KP_COMMA>, <&mc_comma_enter>;
+            tapping-term-ms = <350>;
+            bindings = <&kp COMMA>, <&mc_comma_space>, <&mc_comma_enter>;
         };
 
         layer_tap_p: layer_tap_p {
@@ -152,12 +152,12 @@
             bindings = <&kp LEFT_BRACE>, <&kp RIGHT_BRACE>;
         };
 
-        td_dot_marks: td_dot_marks {
+        td_marks: td_marks {
             compatible = "zmk,behavior-tap-dance";
-            label = "TD_DOT_MARKS";
+            label = "TD_MARKS";
             #binding-cells = <0>;
-            tapping-term-ms = <200>;
-            bindings = <&kp PERIOD>, <&kp EXCLAMATION>, <&kp QUESTION>;
+            tapping-term-ms = <300>;
+            bindings = <&kp EXCLAMATION>, <&kp QUESTION>;
         };
 
         td_dot_comma: td_dot_comma {
@@ -180,6 +180,8 @@
             label = "TD_M";
             #binding-cells = <0>;
             bindings = <&kp M>, <&kp RIGHT_BRACKET>;
+
+            tapping-term-ms = <150>;
         };
 
         td_at_am: td_at_am {
@@ -204,6 +206,8 @@
             label = "TD_T";
             #binding-cells = <0>;
             bindings = <&kp T>, <&kp GRAVE>;
+
+            tapping-term-ms = <400>;
         };
 
         td_ddots: td_ddots {
@@ -216,11 +220,19 @@
         layer_tap_num_dots: layer_tap_num_dots {
             compatible = "zmk,behavior-hold-tap";
             label = "LAYER_TAP_NUM_DOTS";
-            bindings = <&mo>, <&td_dot_marks>;
+            bindings = <&mo>, <&td_dots>;
 
             #binding-cells = <2>;
-            tapping-term-ms = <150>;
+            tapping-term-ms = <300>;
             flavor = "balanced";
+        };
+
+        td_dots: td_dots {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TD_DOTS";
+            #binding-cells = <0>;
+            tapping-term-ms = <300>;
+            bindings = <&kp PERIOD>, <&mc_dot_space>;
         };
     };
 
@@ -235,7 +247,7 @@
         select_current_word: select_current_word {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp LC(RIGHT_ARROW) &kp LS(LC(LEFT_ARROW))>;
+            bindings = <&kp LC(LEFT_ARROW) &kp LS(LC(RIGHT_ARROW))>;
             label = "SELECT_CURRENT_WORD";
         };
 
@@ -245,6 +257,13 @@
             bindings = <&kp PERIOD &kp SPACE>;
             label = "MC_DOT_SPACE";
         };
+
+        mc_comma_space: mc_comma_space {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp COMMA &kp SPACE>;
+            label = "MC_COMMA_SPACE";
+        };
     };
 
     keymap {
@@ -252,10 +271,10 @@
 
         main {
             bindings = <
-           &kp Q  &kp W  &kp E      &kp R                 &td_t                      &kp Y               &kp U            &kp I          &kp O    &layer_tap_p 1 0
-           &kp A  &kp S  &kp D      &kp F                 &kp G                      &kp H               &kp J            &kp K          &kp L    &lt 1 SEMICOLON
-&kp POUND  &kp Z  &kp X  &kp C      &kp V                 &kp B                      &kp N               &td_m            &kp COMMA      &kp DOT  &layer_tap_at_am 1 0  &kp SINGLE_QUOTE
-                         &td_ddots  &mt LEFT_SHIFT SPACE  &layer_tap_num_dots 2 0    &mt LCTRL KP_ENTER  &td_comma_enter  &kp BACKSPACE
+           &kp Q  &kp W  &kp E      &kp R                    &kp T                   &kp Y               &kp U            &kp I      &kp O    &layer_tap_p 1 0
+           &kp A  &kp S  &kp D      &kp F                    &kp G                   &kp H               &kp J            &kp K      &kp L    &lt 1 SEMICOLON
+&kp POUND  &kp Z  &kp X  &kp C      &kp V                    &kp B                   &kp N               &td_m            &kp COMMA  &kp DOT  &layer_tap_at_am 1 0  &kp SINGLE_QUOTE
+                         &td_ddots  &layer_tap_num_dots 2 0  &mt LEFT_SHIFT SPACE    &mt LCTRL KP_ENTER  &td_comma_enter  &td_marks
             >;
         };
 
