@@ -110,10 +110,10 @@
             bindings = <&kp COMMA>, <&mc_comma_enter>;
         };
 
-        layer_tap_p: layer_tap_p {
+        layer_tap_dd: layer_tap_dd {
             compatible = "zmk,behavior-hold-tap";
-            label = "LAYER_TAP_P";
-            bindings = <&mo>, <&td_p>;
+            label = "LAYER_TAP_DD";
+            bindings = <&mo>, <&td_ddots>;
 
             #binding-cells = <2>;
             tapping-term-ms = <150>;
@@ -336,10 +336,10 @@
 
         eu {
             bindings = <
-            &kp Q  &kp W  &kp E      &kp R                    &kp T                   &kp Y               &kp U            &kp I      &kp O    &kp P
-            &kp A  &kp S  &kp D      &kp F                    &kp G                   &kp H               &kp J            &kp K      &kp L    &kp SEMICOLON
-&lt 2 HASH  &kp Z  &kp X  &kp C      &kp V                    &kp B                   &kp N               &td_m            &kp COMMA  &kp DOT  &kp LEFT_BRACKET  &lt 1 SQT
-                          &td_ddots  &layer_tap_num_dots 2 0  &mt LEFT_SHIFT SPACE    &mt LCTRL KP_ENTER  &td_comma_enter  &td_marks
+            &kp Q  &kp W  &kp E      &kp R                    &kp T              &kp Y                 &kp U            &kp I      &kp O    &kp P
+            &kp A  &kp S  &kp D      &kp F                    &kp G              &kp H                 &kp J            &kp K      &kp L    &kp SEMICOLON
+&lt 2 HASH  &kp Z  &kp X  &kp C      &kp V                    &kp B              &kp N                 &td_m            &kp COMMA  &kp DOT  &kp LEFT_BRACKET  &lt 1 SQT
+                          &td_ddots  &layer_tap_num_dots 2 0  &mt LCTRL ENTER    &mt LEFT_SHIFT SPACE  &td_comma_enter  &td_marks
             >;
         };
 
@@ -357,7 +357,7 @@
         &mc_div  &mc_add  &mc_mult       &mc_min  &td_equal    &kp RIGHT_BRACKET      &td_less_eq           &td_und_upp     &td_more_eq      &none
         &kp N0   &kp N1   &kp N2         &kp N3   &kp N4       &kp RIGHT_PARENTHESIS  &kp LEFT_ARROW        &kp UP_ARROW    &kp RIGHT_ARROW  &none
 &trans  &kp N5   &kp N6   &kp N7         &kp N8   &kp N9       &kp RIGHT_BRACE        &kp LC(Z)             &kp DOWN_ARROW  &kp LC(Y)        &none  &trans
-                          &kp LS(LG(S))  &trans   &kp LC(S)    &trans                 &select_current_word  &trans
+                          &kp LS(LG(S))  &trans   &trans       &trans                 &select_current_word  &trans
             >;
         };
     };
