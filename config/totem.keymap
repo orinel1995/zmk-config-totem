@@ -29,17 +29,6 @@
             layers = <0>;
         };
 
-        select_all {
-            bindings = <&kp LC(A)>;
-            key-positions = <11 12>;
-            layers = <0>;
-        };
-
-        undo {
-            bindings = <&kp LC(Z)>;
-            key-positions = <4 25>;
-        };
-
         copy {
             bindings = <&kp K_COPY>;
             key-positions = <12 13>;
@@ -77,11 +66,6 @@
         change_lang {
             bindings = <&kp LA(LEFT_SHIFT)>;
             key-positions = <1 8>;
-        };
-
-        do {
-            bindings = <&kp LC(Y)>;
-            key-positions = <5 26>;
         };
 
         alt_tab {
@@ -234,6 +218,14 @@
             tapping-term-ms = <300>;
             bindings = <&kp PERIOD>, <&mc_dot_space>;
         };
+
+        td_equal: td_equal {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TD_EQUAL";
+            #binding-cells = <0>;
+            tapping-term-ms = <300>;
+            bindings = <&kp EQUAL>, <&mc_unequal>;
+        };
     };
 
     macros {
@@ -264,6 +256,41 @@
             bindings = <&kp COMMA &kp SPACE>;
             label = "MC_COMMA_SPACE";
         };
+
+        mc_unequal: mc_unequal {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp SPACE &kp EXCL &kp EQUAL &kp SPACE>;
+            label = "MC_UNEQUAL";
+        };
+
+        mc_add: mc_add {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp SPACE &kp PLUS &kp SPACE>;
+            label = "MC_ADD";
+        };
+
+        mc_div: mc_div {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp SPACE &kp SLASH &kp SPACE>;
+            label = "MC_DIV";
+        };
+
+        mc_mult: mc_mult {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp SPACE &kp ASTERISK &kp SPACE>;
+            label = "MC_MULT";
+        };
+
+        mc_min: mc_min {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp SPACE &kp MINUS &kp SPACE>;
+            label = "MC_MIN";
+        };
     };
 
     keymap {
@@ -280,19 +307,19 @@
 
         symbols {
             bindings = <
-           &kp SLASH      &kp PLUS   &kp ASTERISK       &kp MINUS         &td_sq_bracket    &kp LS(LC(DOWN_ARROW))  &kp LS(LC(LEFT_ARROW))  &kp LS(LC(UP_ARROW))  &kp LS(LC(RIGHT_ARROW))  &trans
-           &kp PIPE       &kp GRAVE  &kp DOUBLE_QUOTES  &kp SINGLE_QUOTE  &td_ro_bracket    &kp DOWN_ARROW          &kp LEFT_ARROW          &kp UP_ARROW          &kp RIGHT_ARROW          &trans
-&kp POUND  &kp BACKSLASH  &kp CARET  &kp DOLLAR         &kp PERCENT       &td_qw_bracket    &kp LC(DOWN_ARROW)      &kp LC(LEFT_ARROW)      &kp LC(UP_ARROW)      &kp LC(RIGHT_ARROW)      &trans  &trans
-                                     &trans             &trans            &trans            &trans                  &select_current_word    &trans
+           &kp SLASH      &kp PLUS   &kp ASTERISK       &kp MINUS         &kp LEFT_BRACKET        &kp RIGHT_BRACKET      &kp LESS_THAN         &kp CARET       &kp GREATER_THAN  &trans
+           &kp PIPE       &kp GRAVE  &kp DOUBLE_QUOTES  &kp SINGLE_QUOTE  &kp LEFT_PARENTHESIS    &kp RIGHT_PARENTHESIS  &kp LEFT_ARROW        &kp UP_ARROW    &kp RIGHT_ARROW   &trans
+&kp POUND  &kp BACKSLASH  &kp CARET  &kp DOLLAR         &kp PERCENT       &kp LEFT_BRACE          &kp RIGHT_BRACE        &kp LC(Z)             &kp DOWN_ARROW  &kp LC(Y)         &trans  &trans
+                                     &trans             &trans            &trans                  &trans                 &select_current_word  &trans
             >;
         };
 
         numbers {
             bindings = <
-               &kp SLASH  &kp PLUS  &kp ASTERISK  &kp MINUS  &kp EQUAL    &kp LS(LC(DOWN_ARROW))  &kp LS(LC(LEFT_ARROW))  &kp LS(LC(UP_ARROW))  &kp LS(LC(RIGHT_ARROW))  &kp HOME
-               &kp N0     &kp N1    &kp N2        &kp N3     &kp N4       &kp DOWN_ARROW          &kp LEFT_ARROW          &kp UP_ARROW          &kp RIGHT_ARROW          &trans
-&td_dot_comma  &kp N5     &kp N6    &kp N7        &kp N8     &kp N9       &kp LC(DOWN_ARROW)      &kp LC(LEFT_ARROW)      &kp LC(UP_ARROW)      &kp LC(RIGHT_ARROW)      &kp END   &trans
-                                    &trans        &trans     &trans       &trans                  &select_current_word    &trans
+               &mc_div  &mc_add  &mc_mult  &mc_min  &td_equal    &none   &trans                &trans          &trans           &none
+               &kp N0   &kp N1   &kp N2    &kp N3   &kp N4       &none   &kp LEFT_ARROW        &kp UP_ARROW    &kp RIGHT_ARROW  &none
+&td_dot_comma  &kp N5   &kp N6   &kp N7    &kp N8   &kp N9       &none   &none                 &kp DOWN_ARROW  &none            &none  &trans
+                                 &trans    &trans   &trans       &trans  &select_current_word  &trans
             >;
         };
     };
