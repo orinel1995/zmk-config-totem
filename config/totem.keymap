@@ -73,6 +73,11 @@
             timeout-ms = <50>;
             layers = <0>;
         };
+
+        change_lang {
+            bindings = <&kp LA(LEFT_SHIFT)>;
+            key-positions = <1 8>;
+        };
     };
 
     behaviors {
@@ -197,6 +202,16 @@
             #binding-cells = <0>;
             bindings = <&kp SEMICOLON>, <&kp COLON>;
         };
+
+        layer_tap_num_dots: layer_tap_num_dots {
+            compatible = "zmk,behavior-hold-tap";
+            label = "LAYER_TAP_NUM_DOTS";
+            bindings = <&mo>, <&td_dot_marks>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <150>;
+            flavor = "balanced";
+        };
     };
 
     macros {
@@ -227,10 +242,10 @@
 
         main {
             bindings = <
-           &kp Q  &kp W  &kp E      &kp R                 &td_t            &kp Y               &kp U            &kp I          &kp O    &layer_tap_p 1 0
-           &kp A  &kp S  &kp D      &kp F                 &kp G            &kp H               &kp J            &kp K          &kp L    &lt 1 SEMICOLON
-&kp POUND  &kp Z  &kp X  &kp C      &kp V                 &kp B            &kp N               &td_m            &kp COMMA      &kp DOT  &layer_tap_at_am 1 0  &kp SINGLE_QUOTE
-                         &td_ddots  &mt LEFT_SHIFT SPACE  &td_dot_marks    &mt LCTRL KP_ENTER  &td_comma_enter  &kp BACKSPACE
+           &kp Q  &kp W  &kp E      &kp R                 &td_t                      &kp Y               &kp U            &kp I          &kp O    &layer_tap_p 1 0
+           &kp A  &kp S  &kp D      &kp F                 &kp G                      &kp H               &kp J            &kp K          &kp L    &lt 1 SEMICOLON
+&kp POUND  &kp Z  &kp X  &kp C      &kp V                 &kp B                      &kp N               &td_m            &kp COMMA      &kp DOT  &layer_tap_at_am 1 0  &kp SINGLE_QUOTE
+                         &td_ddots  &mt LEFT_SHIFT SPACE  &layer_tap_num_dots 2 0    &mt LCTRL KP_ENTER  &td_comma_enter  &kp BACKSPACE
             >;
         };
 
@@ -245,9 +260,9 @@
 
         numbers {
             bindings = <
-               &kp SLASH  &kp PLUS  &kp ASTERISK  &kp MINUS  &kp EQUAL    &kp LS(LC(DOWN_ARROW))  &kp LS(LC(LEFT_ARROW))  &kp LS(LC(UP_ARROW))  &kp LS(LC(RIGHT_ARROW))  &trans
+               &kp SLASH  &kp PLUS  &kp ASTERISK  &kp MINUS  &kp EQUAL    &kp LS(LC(DOWN_ARROW))  &kp LS(LC(LEFT_ARROW))  &kp LS(LC(UP_ARROW))  &kp LS(LC(RIGHT_ARROW))  &kp HOME
                &kp N0     &kp N1    &kp N2        &kp N3     &kp N4       &kp DOWN_ARROW          &kp LEFT_ARROW          &kp UP_ARROW          &kp RIGHT_ARROW          &trans
-&td_dot_comma  &kp N5     &kp N6    &kp N7        &kp N8     &kp N9       &kp LC(DOWN_ARROW)      &kp LC(LEFT_ARROW)      &kp LC(UP_ARROW)      &kp LC(RIGHT_ARROW)      &trans  &trans
+&td_dot_comma  &kp N5     &kp N6    &kp N7        &kp N8     &kp N9       &kp LC(DOWN_ARROW)      &kp LC(LEFT_ARROW)      &kp LC(UP_ARROW)      &kp LC(RIGHT_ARROW)      &kp END   &trans
                                     &trans        &trans     &trans       &trans                  &select_current_word    &trans
             >;
         };
