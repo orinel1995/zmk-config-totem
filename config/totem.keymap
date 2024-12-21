@@ -154,7 +154,7 @@
         layer_tap_comma_ddot: layer_tap_comma_ddot {
             compatible = "zmk,behavior-hold-tap";
             label = "LAYER_TAP_COMMA_DDOT";
-            bindings = <&mo>, <&td_comma_ddot>;
+            bindings = <&kp>, <&td_comma_ddot>;
 
             #binding-cells = <2>;
             tapping-term-ms = <250>;
@@ -212,10 +212,10 @@
 
         eu {
             bindings = <
-                &kp Q  &kp W  &kp E               &kp R                         &kp T          &kp Y    &kp U                      &kp I                &kp O    &kp P
-                &kp A  &kp S  &kp D               &kp F                         &kp G          &kp H    &kp J                      &kp K                &kp L    &kp SEMICOLON
-&kp LEFT_SHIFT  &kp Z  &kp X  &kp C               &kp V                         &kp B          &kp N    &td_m                      &kp COMMA            &kp DOT  &kp LEFT_BRACKET  &mt LCTRL SQT
-                              &mt LEFT_ALT ENTER  &layer_tap_dot_space LCTRL 0  &lt 1 SPACE    &kp TAB  &layer_tap_comma_ddot 2 0  &mt RIGHT_ALT ENTER
+                &kp Q  &kp W  &kp E               &kp R                         &kp T          &kp Y      &kp U                          &kp I                &kp O    &kp P
+                &kp A  &kp S  &kp D               &kp F                         &kp G          &kp H      &kp J                          &kp K                &kp L    &kp SEMICOLON
+&kp LEFT_SHIFT  &kp Z  &kp X  &kp C               &kp V                         &kp B          &kp N      &td_m                          &kp COMMA            &kp DOT  &kp LEFT_BRACKET  &mt LCTRL SQT
+                              &mt LEFT_ALT ENTER  &layer_tap_dot_space LCTRL 0  &lt 1 SPACE    &lt 2 TAB  &layer_tap_comma_ddot RCTRL 0  &mt RIGHT_ALT ENTER
             >;
         };
 
