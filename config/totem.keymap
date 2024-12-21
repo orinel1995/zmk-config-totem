@@ -61,6 +61,12 @@
             timeout-ms = <50>;
             layers = <0>;
         };
+
+        print_screen {
+            bindings = <&kp LS(LG(S))>;
+            key-positions = <32 33 34>;
+            layers = <0>;
+        };
     };
 
     behaviors {
