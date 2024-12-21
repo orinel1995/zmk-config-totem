@@ -23,20 +23,15 @@
         compatible = "zmk,combos";
 
         combo_esc {
-            timeout-ms = <50>;
-            key-positions = <2 0>;
+            timeout-ms = <100>;
+            key-positions = <2 0 1>;
             bindings = <&kp ESC>;
             layers = <0>;
         };
 
-        tabs {
-            bindings = <&kp TAB>;
-            key-positions = <13 16>;
-        };
-
         delete {
             bindings = <&kp DELETE>;
-            key-positions = <13 12>;
+            key-positions = <17 18>;
             timeout-ms = <50>;
             layers = <0>;
         };
@@ -50,7 +45,7 @@
 
         change_lang {
             bindings = <&kp LA(LEFT_SHIFT)>;
-            key-positions = <25 26>;
+            key-positions = <13 16>;
         };
 
         win {
@@ -73,7 +68,7 @@
             compatible = "zmk,behavior-tap-dance";
             label = "TD_SQ_BRACKET";
             #binding-cells = <0>;
-            tapping-term-ms = <300>;
+            tapping-term-ms = <250>;
             bindings = <&kp LEFT_BRACKET>, <&kp RIGHT_BRACKET>;
         };
 
@@ -109,7 +104,7 @@
             compatible = "zmk,behavior-tap-dance";
             label = "TD_RO_BRACKET";
             #binding-cells = <0>;
-            tapping-term-ms = <200>;
+            tapping-term-ms = <250>;
             bindings = <&kp LEFT_PARENTHESIS>, <&kp RIGHT_PARENTHESIS>;
         };
 
@@ -117,7 +112,7 @@
             compatible = "zmk,behavior-tap-dance";
             label = "TD_QW_BRACKET";
             #binding-cells = <0>;
-            tapping-term-ms = <200>;
+            tapping-term-ms = <250>;
             bindings = <&kp LEFT_BRACE>, <&kp RIGHT_BRACE>;
         };
 
@@ -183,7 +178,7 @@
             compatible = "zmk,behavior-tap-dance";
             label = "TD_DDOTS";
             #binding-cells = <0>;
-            bindings = <&kp SEMICOLON>, <&kp COLON>;
+            bindings = <&kp COLON>, <&kp SEMICOLON>;
 
             tapping-term-ms = <300>;
         };
@@ -343,29 +338,31 @@
 
         eu {
             bindings = <
-                &kp Q  &kp W  &kp E                    &kp R                    &kp T              &kp Y                  &kp U                 &kp I      &kp O    &kp P
-                &kp A  &kp S  &kp D                    &kp F                    &kp G              &kp H                  &kp J                 &kp K      &kp L    &kp SEMICOLON
-&kp LEFT_SHIFT  &kp Z  &kp X  &kp C                    &kp V                    &kp B              &kp N                  &td_m                 &kp COMMA  &kp DOT  &kp LEFT_BRACKET  &mt LCTRL SQT
-                              &mod_tap_alt LEFT_ALT 0  &layer_tap_num_dots 1 0  &mt LCTRL SPACE    &mt LEFT_SHIFT RETURN  &layer_tap_comma 2 0  &td_marks
+                &kp Q  &kp W  &kp E               &kp R                    &kp T              &kp Y    &kp U                 &kp I                &kp O    &kp P
+                &kp A  &kp S  &kp D               &kp F                    &kp G              &kp H    &kp J                 &kp K                &kp L    &kp SEMICOLON
+&kp LEFT_SHIFT  &kp Z  &kp X  &kp C               &kp V                    &kp B              &kp N    &td_m                 &kp COMMA            &kp DOT  &kp LEFT_BRACKET  &mt LCTRL SQT
+                              &mt LEFT_ALT ENTER  &layer_tap_num_dots 1 0  &mt LCTRL SPACE    &kp TAB  &layer_tap_comma 2 0  &mt RIGHT_ALT ENTER
             >;
         };
 
         sym {
             bindings = <
-           &kp SLASH      &kp PLUS       &kp ASTERISK       &kp MINUS         &kp LEFT_BRACKET        &kp RIGHT_BRACKET      &kp LESS_THAN         &td_und_upp     &kp GREATER_THAN  &trans
-           &kp PIPE       &kp GRAVE      &kp DOUBLE_QUOTES  &kp SINGLE_QUOTE  &kp LEFT_PARENTHESIS    &kp RIGHT_PARENTHESIS  &kp LEFT_ARROW        &kp UP_ARROW    &kp RIGHT_ARROW   &trans
-&kp POUND  &kp BACKSLASH  &kp AMPERSAND  &kp DOLLAR         &kp PERCENT       &kp LEFT_BRACE          &kp RIGHT_BRACE        &kp LC(Z)             &kp DOWN_ARROW  &kp LC(Y)         &trans  &trans
-                                         &trans             &trans            &trans                  &trans                 &select_current_word  &trans
+        &kp SLASH      &kp PLUS        &kp ASTERISK    &kp MINUS         &kp EQUAL      &kp PERCENT     &kp LESS_THAN         &kp CARET       &kp GREATER_THAN  &trans
+        &kp PIPE       &td_ro_bracket  &td_sq_bracket  &kp SINGLE_QUOTE  &td_ddots      &td_marks       &kp LEFT_ARROW        &kp UP_ARROW    &kp RIGHT_ARROW   &kp LCTRL
+&trans  &kp BACKSLASH  &kp DOLLAR      &td_qw_bracket  &kp POUND         &kp AT_SIGN    &kp UNDERSCORE  &select_current_word  &kp DOWN_ARROW  &kp AMPERSAND     &trans     &trans
+                                       &trans          &trans            &trans         &kp SPACE       &trans                &trans
             >;
         };
 
         num {
             bindings = <
-           &mc_div  &mc_add  &mc_mult  &mc_min  &td_equal    &kp RIGHT_BRACKET         &td_less_eq           &td_und_upp     &td_more_eq      &none
-           &kp N0   &kp N1   &kp N2    &kp N3   &kp N4       &kp RIGHT_PARENTHESIS     &kp LEFT_ARROW        &kp UP_ARROW    &kp RIGHT_ARROW  &none
-&kp POUND  &kp N5   &kp N6   &kp N7    &kp N8   &kp N9       &kp RIGHT_BRACE           &kp LC(Z)             &kp DOWN_ARROW  &kp LC(Y)        &none  &kp LS(LG(S))
-                             &trans    &trans   &trans       &mt LEFT_SHIFT LS(ENTER)  &select_current_word  &trans
+        &kp SLASH  &kp PLUS  &kp ASTERISK  &kp MINUS  &kp EQUAL    &kp PERCENT      &kp LESS_THAN    &kp CARET       &kp GREATER_THAN  &none
+        &kp N0     &kp N1    &kp N2        &kp N3     &kp N4       &kp EXCLAMATION  &kp LEFT_ARROW   &kp UP_ARROW    &kp RIGHT_ARROW   &none
+&trans  &kp N5     &kp N6    &kp N7        &kp N8     &kp N9       &kp UNDERSCORE   &mc_comma_space  &kp DOWN_ARROW  &kp LC(Z)         &none  &trans
+                             &trans        &kp DOT    &trans       &trans           &trans           &trans
             >;
+
+            label = "num_layer";
         };
     };
 };
