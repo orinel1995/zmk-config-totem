@@ -221,18 +221,18 @@
 
         sym {
             bindings = <
-        &kp SLASH      &kp PLUS        &kp ASTERISK    &kp MINUS         &kp EQUAL      &kp PERCENT     &kp LESS_THAN         &kp CARET       &kp GREATER_THAN  &kp AMPERSAND
-        &kp PIPE       &td_ro_bracket  &td_sq_bracket  &kp SINGLE_QUOTE  &td_ddots      &td_marks       &kp LEFT_ARROW        &kp UP_ARROW    &kp RIGHT_ARROW   &kp LCTRL
-&trans  &kp BACKSLASH  &kp DOLLAR      &td_qw_bracket  &kp POUND         &kp AT_SIGN    &kp UNDERSCORE  &select_current_word  &kp DOWN_ARROW  &kp LS(SLASH)     &kp SLASH      &trans
-                                       &trans          &trans            &trans         &kp SPACE       &trans                &trans
+        &kp SLASH       &kp PLUS        &kp ASTERISK    &kp MINUS         &kp EQUAL    &kp PERCENT     &kp LESS_THAN         &kp CARET       &kp GREATER_THAN  &kp AMPERSAND
+        &td_qw_bracket  &td_ro_bracket  &td_sq_bracket  &kp SINGLE_QUOTE  &kp COLON    &td_marks       &kp LEFT_ARROW        &kp UP_ARROW    &kp RIGHT_ARROW   &kp AT_SIGN
+&trans  &kp LC(Z)       &kp LC(X)       &kp LC(C)       &kp LC(V)         &kp POUND    &kp UNDERSCORE  &select_current_word  &kp DOWN_ARROW  &kp LS(SLASH)     &kp SLASH      &kp BACKSLASH
+                                        &trans          &trans            &trans       &kp SPACE       &kp LCTRL             &trans
             >;
         };
 
         num {
             bindings = <
         &kp SLASH  &kp PLUS  &kp ASTERISK  &kp MINUS  &kp EQUAL    &kp PERCENT      &kp LESS_THAN    &kp CARET       &kp GREATER_THAN  &kp AMPERSAND
-        &kp N0     &kp N1    &kp N2        &kp N3     &kp N4       &kp EXCLAMATION  &kp LEFT_ARROW   &kp UP_ARROW    &kp RIGHT_ARROW   &kp LCTRL
-&trans  &kp N5     &kp N6    &kp N7        &kp N8     &kp N9       &kp UNDERSCORE   &mc_comma_space  &kp DOWN_ARROW  &kp LS(SLASH)     &kp SLASH      &trans
+        &kp N0     &kp N1    &kp N2        &kp N3     &kp N4       &kp EXCLAMATION  &kp LEFT_ARROW   &kp UP_ARROW    &kp RIGHT_ARROW   &kp AT_SIGN
+&trans  &kp N5     &kp N6    &kp N7        &kp N8     &kp N9       &kp UNDERSCORE   &mc_comma_space  &kp DOWN_ARROW  &kp LS(SLASH)     &kp SLASH      &kp BACKSLASH
                              &trans        &kp DOT    &trans       &trans           &trans           &trans
             >;
 
