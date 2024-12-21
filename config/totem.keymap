@@ -289,7 +289,7 @@
         mc_unequal: mc_unequal {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp SPACE &kp EXCL &kp EQUAL &kp SPACE>;
+            bindings = <&kp EXCL &kp EQUAL>;
             label = "MC_UNEQUAL";
         };
 
@@ -324,14 +324,14 @@
         mc_more_eq: mc_more_eq {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp SPACE &kp GREATER_THAN &kp EQUAL &kp SPACE>;
+            bindings = <&kp GREATER_THAN &kp EQUAL>;
             label = "MC_MORE_EQ";
         };
 
         mc_less_eq: mc_less_eq {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp SPACE &kp LESS_THAN &kp EQUAL &kp SPACE>;
+            bindings = <&kp LESS_THAN &kp EQUAL>;
             label = "MC_LESS_EQ";
         };
     };
@@ -359,10 +359,10 @@
 
         num {
             bindings = <
-           &mc_div  &mc_add  &mc_mult  &mc_min  &td_equal    &kp RIGHT_BRACKET      &td_less_eq           &td_und_upp     &td_more_eq      &none
-           &kp N0   &kp N1   &kp N2    &kp N3   &kp N4       &kp RIGHT_PARENTHESIS  &kp LEFT_ARROW        &kp UP_ARROW    &kp RIGHT_ARROW  &none
-&kp POUND  &kp N5   &kp N6   &kp N7    &kp N8   &kp N9       &kp RIGHT_BRACE        &kp LC(Z)             &kp DOWN_ARROW  &kp LC(Y)        &none  &kp LS(LG(S))
-                             &trans    &trans   &trans       &kp LS(RETURN)         &select_current_word  &trans
+           &mc_div  &mc_add  &mc_mult  &mc_min  &td_equal    &kp RIGHT_BRACKET         &td_less_eq           &td_und_upp     &td_more_eq      &none
+           &kp N0   &kp N1   &kp N2    &kp N3   &kp N4       &kp RIGHT_PARENTHESIS     &kp LEFT_ARROW        &kp UP_ARROW    &kp RIGHT_ARROW  &none
+&kp POUND  &kp N5   &kp N6   &kp N7    &kp N8   &kp N9       &kp RIGHT_BRACE           &kp LC(Z)             &kp DOWN_ARROW  &kp LC(Y)        &none  &kp LS(LG(S))
+                             &trans    &trans   &trans       &mt LEFT_SHIFT LS(ENTER)  &select_current_word  &trans
             >;
         };
     };
