@@ -196,7 +196,7 @@
               &kp ESCAPE  &kp LESS_THAN  &kp CARET  &kp GREATER_THAN  &kp PERCENT    &trans     &kp N7  &kp N8      &kp N9  &trans
               &trans      &kp ASTERISK   &kp PLUS   &kp EQUAL         &kp ENTER      &trans     &kp N4  &kp N5      &kp N6  &trans
 &kp LEFT_ALT  &trans      &kp SLASH      &kp MINUS  &kp UNDERSCORE    &kp POUND      &kp GRAVE  &kp N1  &kp N2      &kp N3  &trans  &trans
-                                         &trans     &kp BACKSPACE     &trans         &trans     &kp N0  &kp KP_DOT
+                                         &trans     &kp BACKSPACE     &mo 1          &mo 2      &kp N0  &kp PERIOD
             >;
         };
 
@@ -205,7 +205,7 @@
         &trans  &trans          &trans          &trans         &trans       &trans     &kp SEMICOLON    &trans         &trans         &trans
         &trans  &td_ro_bracket  &td_sq_bracket  &kp SQT        &kp ENTER    &trans     &kp COLON        &kp AT_SIGN    &kp AMPERSAND  &trans
 &trans  &trans  &trans          &td_qw_bracket  &trans         &trans       &kp GRAVE  &kp EXCLAMATION  &kp LS(SLASH)  &kp SLASH      &trans  &trans
-                                &trans          &kp BACKSPACE  &trans       &trans     &trans           &trans
+                                &trans          &kp BACKSPACE  &mo 1        &mo 2      &kp BACKSPACE    &trans
             >;
         };
 
@@ -223,7 +223,7 @@
         compatible = "zmk,conditional-layers";
 
         press_wtf {
-            if-layers = <4 1>;
+            if-layers = <1 2>;
             then-layer = <3>;
         };
     };
