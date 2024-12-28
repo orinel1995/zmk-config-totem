@@ -26,27 +26,27 @@
             timeout-ms = <100>;
             key-positions = <2 0 1>;
             bindings = <&kp ESC>;
-            layers = <0 4 5>;
+            layers = <0>;
         };
 
         delete {
             bindings = <&kp DELETE>;
             key-positions = <17 18>;
             timeout-ms = <50>;
-            layers = <0 4 5>;
+            layers = <0>;
         };
 
         backspace {
             bindings = <&kp BACKSPACE>;
             key-positions = <16 17>;
             timeout-ms = <50>;
-            layers = <0 4 5>;
+            layers = <0>;
         };
 
         change_lang {
             bindings = <&kp LA(LEFT_SHIFT)>;
             key-positions = <24 25>;
-            layers = <0 4 5>;
+            layers = <0>;
         };
 
         win {
@@ -59,7 +59,7 @@
             bindings = <&kp BACKSPACE>;
             key-positions = <11 12>;
             timeout-ms = <50>;
-            layers = <0 5 4>;
+            layers = <0>;
         };
 
         print_screen {
@@ -71,7 +71,7 @@
         change_lang_2 {
             bindings = <&kp LA(LEFT_SHIFT)>;
             key-positions = <26 27>;
-            layers = <0 4 5>;
+            layers = <0>;
         };
     };
 
@@ -222,60 +222,40 @@
     keymap {
         compatible = "zmk,keymap";
 
-        lett {
+        letters {
             bindings = <
-           &kp Q  &kp W  &kp E   &kp R                 &kp T          &kp Y      &kp U                     &kp I               &kp O    &kp P
-           &kp A  &kp S  &kp D   &kp F                 &kp G          &kp H      &kp J                     &kp K               &kp L    &kp SEMICOLON
-&sk LCTRL  &kp Z  &kp X  &kp C   &kp V                 &kp B          &kp N      &td_m                     &kp COMMA           &kp DOT  &kp LEFT_BRACKET  &mt LCTRL SQT
-                         &trans  &mt LEFT_GUI LA(TAB)  &lt 3 SPACE    &lt 2 TAB  &mt LEFT_SHIFT BACKSPACE  &kp LA(LEFT_SHIFT)
+           &kp Q  &kp W  &kp E                 &kp R       &kp T          &kp Y      &kp U          &kp I           &kp O    &kp P
+           &kp A  &kp S  &kp D                 &kp F       &kp G          &kp H      &kp J          &kp K           &kp L    &kp SEMICOLON
+&sk LCTRL  &kp Z  &kp X  &kp C                 &kp V       &kp B          &kp N      &td_m          &kp COMMA       &kp DOT  &kp LEFT_BRACKET  &mt LCTRL SQT
+                         &mt LEFT_ALT LA(TAB)  &kp DELETE  &lt 2 SPACE    &lt 3 TAB  &kp BACKSPACE  &sk LEFT_SHIFT
             >;
         };
 
         navigation {
             bindings = <
-        &kp F2  &kp F3     &kp F4     &kp F5  &kp F6       &kp F7     &kp F8    &kp F9    &kp F10    &kp F11
-        &trans  &kp LCTRL  &kp LSHFT  &trans  &kp ENTER    &kp ENTER  &kp LEFT  &kp UP    &kp RIGHT  &trans
-&trans  &trans  &trans     &trans     &trans  &trans       &trans     &trans    &kp DOWN  &trans     &trans   &kp LG(L)
-                           &trans     &trans  &trans       &trans     &trans    &trans
-            >;
-        };
-
-        symbols {
-            bindings = <
-        &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans         &trans     &trans
-        &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans         &trans     &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &kp LS(SLASH)  &kp SLASH  &trans  &trans
-                        &trans  &trans  &trans    &trans  &trans  &trans
+        &kp F2  &kp F3     &kp F4  &kp F5          &kp F6       &kp F7         &kp F8         &kp F9    &kp F10     &kp F11
+        &trans  &kp LCTRL  &trans  &kp LEFT_SHIFT  &kp ENTER    &kp PAGE_UP    &kp LEFT       &kp UP    &kp RIGHT   &kp HOME
+&trans  &trans  &trans     &trans  &trans          &trans       &kp PAGE_DOWN  &kp BACKSPACE  &kp DOWN  &kp DELETE  &kp END   &kp LG(L)
+                           &trans  &trans          &trans       &trans         &trans         &trans
             >;
         };
 
         numbers {
             bindings = <
-        &trans  &trans  &kp ASTERISK  &kp SLASH  &kp NON_US_BACKSLASH    &trans     &kp N7  &kp N8      &kp N9  &trans
-        &trans  &trans  &kp PLUS      &kp MINUS  &kp ENTER               &kp ENTER  &kp N4  &kp N5      &kp N6  &trans
-&trans  &trans  &trans  &trans        &trans     &trans                  &trans     &kp N1  &kp N2      &kp N3  &trans  &trans
-                        &trans        &trans     &trans                  &trans     &kp N0  &kp KP_DOT
+              &trans  &kp LESS_THAN  &kp CARET  &kp GREATER_THAN  &kp PERCENT    &trans     &kp N7  &kp N8      &kp N9  &trans
+              &trans  &kp ASTERISK   &kp PLUS   &kp EQUAL         &kp ENTER      &trans     &kp N4  &kp N5      &kp N6  &trans
+&kp LEFT_ALT  &trans  &kp SLASH      &kp MINUS  &kp UNDERSCORE    &kp POUND      &kp GRAVE  &kp N1  &kp N2      &kp N3  &trans  &trans
+                                     &trans     &kp BACKSPACE     &trans         &trans     &kp N0  &kp KP_DOT
             >;
         };
 
-        sym {
+        symbols {
             bindings = <
-        &kp SLASH       &kp PLUS        &kp ASTERISK    &kp MINUS         &kp EQUAL    &kp PERCENT     &kp LESS_THAN         &kp CARET       &kp GREATER_THAN  &kp AMPERSAND
-        &td_qw_bracket  &td_ro_bracket  &td_sq_bracket  &kp SINGLE_QUOTE  &kp COLON    &td_marks       &kp LEFT_ARROW        &kp UP_ARROW    &kp RIGHT_ARROW   &kp AT_SIGN
-&trans  &trans          &kp LC(X)       &kp LC(C)       &kp LC(V)         &kp POUND    &kp UNDERSCORE  &select_current_word  &kp DOWN_ARROW  &kp LS(SLASH)     &kp SLASH      &kp BACKSLASH
-                                        &kp LA(TAB)     &trans            &trans       &kp SPACE       &kp LCTRL             &kp GRAVE
+        &trans  &trans          &trans          &trans         &trans       &trans     &kp SEMICOLON    &trans         &trans         &trans
+        &trans  &td_ro_bracket  &td_sq_bracket  &kp SQT        &kp ENTER    &trans     &kp COLON        &kp AT_SIGN    &kp AMPERSAND  &trans
+&trans  &trans  &trans          &td_qw_bracket  &trans         &trans       &kp GRAVE  &kp EXCLAMATION  &kp LS(SLASH)  &kp SLASH      &trans  &trans
+                                &trans          &kp BACKSPACE  &trans       &trans     &trans           &trans
             >;
-        };
-
-        num {
-            bindings = <
-              &kp ASTERISK  &kp N7        &kp N8        &kp N9        &kp PLUS     &kp PERCENT  &kp LEFT        &kp UP_ARROW   &kp RIGHT         &kp AMPERSAND
-              &kp SLASH     &kp NUMBER_4  &kp N5        &kp NUMBER_6  &kp MINUS    &td_marks    &kp LESS_THAN   &kp DOWN       &kp GREATER_THAN  &kp AT_SIGN
-&kp LEFT_ALT  &kp N0        &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp EQUAL    &kp DOLLAR   &kp UNDERSCORE  &kp LS(SLASH)  &kp SLASH         &kp CARET      &kp BACKSLASH
-                                          &kp DOT       &trans        &trans       &trans       &trans          &trans
-            >;
-
-            label = "num_layer";
         };
     };
 
@@ -283,7 +263,7 @@
         compatible = "zmk,conditional-layers";
 
         press_wtf {
-            if-layers = <4 5>;
+            if-layers = <4 2>;
             then-layer = <1>;
         };
     };
