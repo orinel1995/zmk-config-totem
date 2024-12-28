@@ -22,55 +22,15 @@
     combos {
         compatible = "zmk,combos";
 
-        combo_esc {
-            timeout-ms = <100>;
-            key-positions = <2 0 1>;
-            bindings = <&kp ESC>;
-            layers = <0>;
-        };
-
-        delete {
-            bindings = <&kp DELETE>;
-            key-positions = <17 18>;
-            timeout-ms = <50>;
-            layers = <0>;
-        };
-
-        backspace {
-            bindings = <&kp BACKSPACE>;
-            key-positions = <16 17>;
-            timeout-ms = <50>;
-            layers = <0>;
-        };
-
-        change_lang {
-            bindings = <&kp LA(LEFT_SHIFT)>;
-            key-positions = <24 25>;
-            layers = <0>;
-        };
-
         win {
             bindings = <&kp LEFT_WIN>;
             key-positions = <20 21>;
             layers = <0>;
         };
 
-        l_delete {
-            bindings = <&kp BACKSPACE>;
-            key-positions = <11 12>;
-            timeout-ms = <50>;
-            layers = <0>;
-        };
-
         print_screen {
             bindings = <&kp LS(LG(S))>;
             key-positions = <32 33 34>;
-            layers = <0>;
-        };
-
-        change_lang_2 {
-            bindings = <&kp LA(LEFT_SHIFT)>;
-            key-positions = <26 27>;
             layers = <0>;
         };
     };
@@ -227,25 +187,16 @@
            &kp Q  &kp W  &kp E                 &kp R       &kp T          &kp Y      &kp U          &kp I                          &kp O    &kp P
            &kp A  &kp S  &kp D                 &kp F       &kp G          &kp H      &kp J          &kp K                          &kp L    &kp SEMICOLON
 &sk LCTRL  &kp Z  &kp X  &kp C                 &kp V       &kp B          &kp N      &td_m          &kp COMMA                      &kp DOT  &kp LEFT_BRACKET  &mt LCTRL SQT
-                         &mt LEFT_ALT LA(TAB)  &kp DELETE  &lt 2 SPACE    &lt 3 TAB  &kp BACKSPACE  &mt LEFT_SHIFT LA(LEFT_SHIFT)
-            >;
-        };
-
-        navigation {
-            bindings = <
-        &kp F2  &kp F3     &kp F4  &kp F5          &kp F6       &kp F7         &kp F8         &kp F9    &kp F10     &kp F11
-        &trans  &kp LCTRL  &trans  &kp LEFT_SHIFT  &kp ENTER    &kp PAGE_UP    &kp LEFT       &kp UP    &kp RIGHT   &kp HOME
-&trans  &trans  &trans     &trans  &trans          &trans       &kp PAGE_DOWN  &kp BACKSPACE  &kp DOWN  &kp DELETE  &kp END   &kp LG(L)
-                           &trans  &trans          &trans       &trans         &trans         &trans
+                         &mt LEFT_ALT LA(TAB)  &kp DELETE  &lt 1 SPACE    &lt 2 TAB  &kp BACKSPACE  &mt LEFT_SHIFT LA(LEFT_SHIFT)
             >;
         };
 
         numbers {
             bindings = <
-              &trans  &kp LESS_THAN  &kp CARET  &kp GREATER_THAN  &kp PERCENT    &trans     &kp N7  &kp N8      &kp N9  &trans
-              &trans  &kp ASTERISK   &kp PLUS   &kp EQUAL         &kp ENTER      &trans     &kp N4  &kp N5      &kp N6  &trans
-&kp LEFT_ALT  &trans  &kp SLASH      &kp MINUS  &kp UNDERSCORE    &kp POUND      &kp GRAVE  &kp N1  &kp N2      &kp N3  &trans  &trans
-                                     &trans     &kp BACKSPACE     &trans         &trans     &kp N0  &kp KP_DOT
+              &kp ESCAPE  &kp LESS_THAN  &kp CARET  &kp GREATER_THAN  &kp PERCENT    &trans     &kp N7  &kp N8      &kp N9  &trans
+              &trans      &kp ASTERISK   &kp PLUS   &kp EQUAL         &kp ENTER      &trans     &kp N4  &kp N5      &kp N6  &trans
+&kp LEFT_ALT  &trans      &kp SLASH      &kp MINUS  &kp UNDERSCORE    &kp POUND      &kp GRAVE  &kp N1  &kp N2      &kp N3  &trans  &trans
+                                         &trans     &kp BACKSPACE     &trans         &trans     &kp N0  &kp KP_DOT
             >;
         };
 
@@ -257,14 +208,23 @@
                                 &trans          &kp BACKSPACE  &trans       &trans     &trans           &trans
             >;
         };
+
+        navigation {
+            bindings = <
+        &kp F2  &kp F3     &kp F4  &kp F5          &kp F6                  &kp F7         &kp F8         &kp F9    &kp F10     &kp F11
+        &kp A   &kp LCTRL  &kp D   &kp LEFT_SHIFT  &kp ENTER               &kp PAGE_UP    &kp LEFT       &kp UP    &kp RIGHT   &kp HOME
+&trans  &kp Z   &kp X      &kp C   &kp V           &select_current_word    &kp PAGE_DOWN  &kp BACKSPACE  &kp DOWN  &kp DELETE  &kp END   &kp LG(L)
+                           &trans  &trans          &trans                  &trans         &trans         &trans
+            >;
+        };
     };
 
     conditional_layers {
         compatible = "zmk,conditional-layers";
 
         press_wtf {
-            if-layers = <4 2>;
-            then-layer = <1>;
+            if-layers = <4 1>;
+            then-layer = <3>;
         };
     };
 };
