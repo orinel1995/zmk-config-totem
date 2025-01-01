@@ -202,10 +202,10 @@
 
         symbols {
             bindings = <
-        &trans  &trans          &trans          &trans         &trans       &trans     &kp SEMICOLON    &trans         &trans         &trans
-        &trans  &td_ro_bracket  &td_sq_bracket  &kp SQT        &kp ENTER    &trans     &kp COLON        &kp AT_SIGN    &kp AMPERSAND  &trans
-&trans  &trans  &trans          &td_qw_bracket  &trans         &kp POUND    &kp GRAVE  &kp EXCLAMATION  &kp LS(SLASH)  &kp SLASH      &trans  &trans
-                                &trans          &kp BACKSPACE  &mo 1        &mo 2      &kp BACKSPACE    &trans
+        &trans  &trans          &trans          &trans         &trans           &trans     &kp SEMICOLON    &trans         &trans         &trans
+        &trans  &td_ro_bracket  &td_sq_bracket  &kp SQT        &kp LS(ENTER)    &trans     &kp COLON        &kp AT_SIGN    &kp AMPERSAND  &trans
+&trans  &trans  &trans          &td_qw_bracket  &trans         &kp POUND        &kp GRAVE  &kp EXCLAMATION  &kp LS(SLASH)  &kp SLASH      &trans  &trans
+                                &trans          &kp BACKSPACE  &mo 1            &mo 2      &kp BACKSPACE    &trans
             >;
         };
 
@@ -215,6 +215,15 @@
         &kp A   &kp LCTRL  &kp D   &kp LEFT_SHIFT  &kp ENTER               &kp PAGE_UP    &kp LEFT       &kp UP    &kp RIGHT   &kp HOME
 &trans  &kp Z   &kp X      &kp C   &kp V           &select_current_word    &kp PAGE_DOWN  &kp BACKSPACE  &kp DOWN  &kp DELETE  &kp END   &kp LG(L)
                            &trans  &trans          &trans                  &trans         &trans         &trans
+            >;
+        };
+
+        layer_4 {
+            bindings = <
+        &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
+        &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
+                        &trans  &trans  &trans    &trans  &trans  &trans
             >;
         };
     };
