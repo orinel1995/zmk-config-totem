@@ -22,12 +22,6 @@
     combos {
         compatible = "zmk,combos";
 
-        win {
-            bindings = <&kp LEFT_WIN>;
-            key-positions = <20 21>;
-            layers = <0>;
-        };
-
         print_screen {
             bindings = <&kp LS(LG(S))>;
             key-positions = <32 33 34>;
@@ -187,34 +181,34 @@
            &kp Q  &kp W  &kp E                 &kp R       &kp T          &kp Y      &kp U          &kp I                          &kp O    &kp P
            &kp A  &kp S  &kp D                 &kp F       &kp G          &kp H      &kp J          &kp K                          &kp L    &kp SEMICOLON
 &kp LCTRL  &kp Z  &kp X  &kp C                 &kp V       &kp B          &kp N      &td_m          &kp COMMA                      &kp DOT  &kp LEFT_BRACKET  &kp SQT
-                         &mt LEFT_ALT LA(TAB)  &kp DELETE  &lt 1 SPACE    &lt 2 TAB  &kp BACKSPACE  &mt LEFT_SHIFT LA(LEFT_SHIFT)
+                         &mt LEFT_ALT LA(TAB)  &kp DELETE  &lt 2 SPACE    &lt 1 TAB  &kp BACKSPACE  &mt LEFT_SHIFT LA(LEFT_SHIFT)
             >;
         };
 
         numbers {
             bindings = <
-              &kp ESCAPE  &kp LESS_THAN  &kp CARET  &kp GREATER_THAN  &kp PERCENT    &trans     &kp N7  &kp N8      &kp N9  &trans
-              &trans      &kp ASTERISK   &kp PLUS   &kp EQUAL         &kp ENTER      &trans     &kp N4  &kp N5      &kp N6  &trans
-&kp LEFT_ALT  &trans      &kp SLASH      &kp MINUS  &kp UNDERSCORE    &kp POUND      &kp GRAVE  &kp N1  &kp N2      &kp N3  &trans  &trans
-                                         &trans     &kp BACKSPACE     &mo 1          &mo 2      &kp N0  &kp PERIOD
+                &kp ESCAPE  &kp LESS_THAN  &kp CARET  &kp GREATER_THAN  &kp PERCENT    &trans  &kp N7  &kp N8  &kp N9  &trans
+                &trans      &kp ASTERISK   &kp PLUS   &kp EQUAL         &kp ENTER      &trans  &kp N4  &kp N5  &kp N6  &trans
+&kp LEFT_SHIFT  &trans      &kp SLASH      &kp MINUS  &kp UNDERSCORE    &kp POUND      &kp N0  &kp N1  &kp N2  &kp N3  &kp PERIOD  &kp LEFT_ALT
+                                           &trans     &trans            &mo 2          &mo 1   &trans  &trans
             >;
         };
 
         symbols {
             bindings = <
-        &trans  &trans          &trans          &trans         &trans           &trans     &kp SEMICOLON    &trans         &trans         &trans
-        &trans  &td_ro_bracket  &td_sq_bracket  &kp SQT        &kp LS(ENTER)    &trans     &kp COLON        &kp AT_SIGN    &kp AMPERSAND  &trans
-&trans  &trans  &trans          &td_qw_bracket  &trans         &kp POUND        &kp GRAVE  &kp EXCLAMATION  &kp LS(SLASH)  &kp SLASH      &trans  &trans
-                                &trans          &kp BACKSPACE  &mo 1            &mo 2      &kp BACKSPACE    &trans
+                &kp ESCAPE  &trans          &trans          &trans   &trans       &trans     &kp SEMICOLON    &trans         &trans         &trans
+                &kp LC(A)   &td_ro_bracket  &td_sq_bracket  &kp SQT  &kp ENTER    &trans     &kp COLON        &kp AT_SIGN    &kp AMPERSAND  &trans
+&kp LEFT_SHIFT  &kp LC(Z)   &trans          &td_qw_bracket  &trans   &kp POUND    &kp GRAVE  &kp EXCLAMATION  &kp LS(SLASH)  &kp SLASH      &trans  &trans
+                                            &trans          &trans   &mo 2        &mo 1      &trans           &trans
             >;
         };
 
         navigation {
             bindings = <
-        &kp F2  &kp F3     &kp F4  &kp F5          &kp F6                  &kp F7         &kp F8         &kp F9    &kp F10     &kp F11
-        &kp A   &kp LCTRL  &kp D   &kp LEFT_SHIFT  &kp ENTER               &kp PAGE_UP    &kp LEFT       &kp UP    &kp RIGHT   &kp HOME
-&trans  &kp Z   &kp X      &kp C   &kp V           &select_current_word    &kp PAGE_DOWN  &kp BACKSPACE  &kp DOWN  &kp DELETE  &kp END   &kp LG(L)
-                           &trans  &trans          &trans                  &trans         &trans         &trans
+              &kp F2  &kp F3     &kp F4  &kp F5          &kp F6                  &kp F7         &kp F8         &kp F9    &kp F10     &kp F11
+              &kp A   &kp LCTRL  &kp D   &kp LEFT_SHIFT  &kp ENTER               &kp PAGE_UP    &kp LEFT       &kp UP    &kp RIGHT   &kp HOME
+&kp LEFT_GUI  &kp Z   &kp X      &kp C   &kp V           &select_current_word    &kp PAGE_DOWN  &kp BACKSPACE  &kp DOWN  &kp DELETE  &kp END   &kp LG(L)
+                                 &trans  &trans          &trans                  &trans         &trans         &trans
             >;
         };
 
