@@ -186,7 +186,7 @@
             bindings = <
            &kp Q  &kp W  &kp E                 &kp R       &kp T          &kp Y      &kp U          &kp I                          &kp O    &kp P
            &kp A  &kp S  &kp D                 &kp F       &kp G          &kp H      &kp J          &kp K                          &kp L    &kp SEMICOLON
-&sk LCTRL  &kp Z  &kp X  &kp C                 &kp V       &kp B          &kp N      &td_m          &kp COMMA                      &kp DOT  &kp LEFT_BRACKET  &mt LCTRL SQT
+&kp LCTRL  &kp Z  &kp X  &kp C                 &kp V       &kp B          &kp N      &td_m          &kp COMMA                      &kp DOT  &kp LEFT_BRACKET  &kp SQT
                          &mt LEFT_ALT LA(TAB)  &kp DELETE  &lt 1 SPACE    &lt 2 TAB  &kp BACKSPACE  &mt LEFT_SHIFT LA(LEFT_SHIFT)
             >;
         };
@@ -204,7 +204,7 @@
             bindings = <
         &trans  &trans          &trans          &trans         &trans       &trans     &kp SEMICOLON    &trans         &trans         &trans
         &trans  &td_ro_bracket  &td_sq_bracket  &kp SQT        &kp ENTER    &trans     &kp COLON        &kp AT_SIGN    &kp AMPERSAND  &trans
-&trans  &trans  &trans          &td_qw_bracket  &trans         &trans       &kp GRAVE  &kp EXCLAMATION  &kp LS(SLASH)  &kp SLASH      &trans  &trans
+&trans  &trans  &trans          &td_qw_bracket  &trans         &kp POUND    &kp GRAVE  &kp EXCLAMATION  &kp LS(SLASH)  &kp SLASH      &trans  &trans
                                 &trans          &kp BACKSPACE  &mo 1        &mo 2      &kp BACKSPACE    &trans
             >;
         };
