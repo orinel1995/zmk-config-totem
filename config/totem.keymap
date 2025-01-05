@@ -164,10 +164,10 @@
 
         symbols {
             bindings = <
-                &kp F2        &kp F3          &kp F4          &kp F5   &kp F6               &kp F7         &kp F8    &kp F9     &kp F10    &kp F11
-                &kp LCTRL     &td_ro_bracket  &td_sq_bracket  &kp SQT  &next_str_in_list    &kp COLON      &kp LEFT  &kp UP     &kp RIGHT  &kp RCTRL
-&kp LEFT_SHIFT  &kp LEFT_GUI  &trans          &td_qw_bracket  &kp SQT  &dict_value          &kp SEMICOLON  &kp HOME  &kp DOWN   &kp END    &kp RIGHT_ALT  &kp RIGHT_SHIFT
-                                              &trans          &trans   &enter_on_space      &trans         &trans    &kp LG(L)
+                &kp F2            &kp F3          &kp F4          &kp F5   &kp F6               &kp F7         &kp F8             &kp F9     &kp F10    &kp F11
+                &kp LCTRL         &td_ro_bracket  &td_sq_bracket  &kp SQT  &next_str_in_list    &kp COLON      &kp LEFT           &kp UP     &kp RIGHT  &kp RCTRL
+&kp LEFT_SHIFT  &kp LC(LEFT_ALT)  &trans          &td_qw_bracket  &kp SQT  &dict_value          &kp SEMICOLON  &kp HOME           &kp DOWN   &kp END    &kp RIGHT_ALT  &kp RIGHT_SHIFT
+                                                  &trans          &trans   &enter_on_space      &trans         &kp LC(BACKSPACE)  &kp LG(L)
             >;
         };
     };
