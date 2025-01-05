@@ -27,6 +27,11 @@
             key-positions = <32 33 34>;
             layers = <0>;
         };
+
+        ctrl_alt_delete {
+            bindings = <&kp LC(LA(DELETE))>;
+            key-positions = <35 36 37>;
+        };
     };
 
     behaviors {
@@ -103,11 +108,20 @@
         hidden_tab: hidden_tab {
             compatible = "zmk,behavior-mod-morph";
             label = "HIDDEN_TAB";
-            bindings = <&mo 2>, <&kp TAB>;
+            bindings = <&lt 2 UNDERSCORE>, <&kp TAB>;
 
             #binding-cells = <0>;
             mods = <(MOD_LCTL|MOD_LSFT|MOD_RSFT|MOD_RCTL|MOD_LALT|MOD_RALT)>;
-            keep-mods = <(MOD_LALT|MOD_RALT)>;
+            keep-mods = <(MOD_LALT|MOD_RALT|MOD_LSFT|MOD_RSFT)>;
+        };
+
+        grave_esc: grave_esc {
+            compatible = "zmk,behavior-mod-morph";
+            label = "GRAVE_ESC";
+            bindings = <&kp GRAVE>, <&kp ESC>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LCTL|MOD_LSFT|MOD_RSFT|MOD_RCTL|MOD_LALT|MOD_RALT|MOD_RGUI|MOD_LGUI)>;
         };
     };
 
@@ -141,47 +155,22 @@
 
         numbers {
             bindings = <
-          &kp ESCAPE  &kp LS(EXCL)  &kp LS(AT)    &kp LS(POUND)  &kp LS(DLLR)    &kp LS(PRCNT)   &kp LS(CARET)     &kp LS(AMPS)   &kp LS(PIPE)  &kp BSLH
+          &grave_esc  &kp LS(EXCL)  &kp LS(AT)    &kp LS(POUND)  &kp LS(DLLR)    &kp LS(PRCNT)   &kp LS(CARET)     &kp LS(AMPS)   &kp LS(PIPE)  &kp BSLH
           &kp N0      &kp N1        &kp N2        &kp N3         &kp N4          &kp N5          &kp N6            &kp N7         &kp N8        &kp N9
-&kp LALT  &kp LCTRL   &kp SLASH     &kp ASTERISK  &kp MINUS      &kp PLUS        &kp LESS_THAN   &kp GREATER_THAN  &kp LS(SLASH)  &kp SLASH     &kp RCTRL  &kp LEFT_ALT
-                                    &kp LEFT_GUI  &trans         &trans          &kp UNDERSCORE  &trans            &kp N0
+&kp LALT  &kp LCTRL   &kp SLASH     &kp ASTERISK  &kp MINUS      &kp PLUS        &kp LESS_THAN   &kp GREATER_THAN  &kp LS(SLASH)  &kp SLASH     &kp RCTRL  &kp RIGHT_ALT
+                                    &sk LEFT_GUI  &trans         &trans          &kp UNDERSCORE  &trans            &kp EQUAL
             >;
         };
 
         symbols {
             bindings = <
-                &kp F2     &kp F3          &kp F4          &kp F5   &kp F6               &kp F7     &kp F8         &kp F9    &kp F10    &kp F11
-                &kp GRAVE  &td_ro_bracket  &td_sq_bracket  &kp SQT  &next_str_in_list    &kp COLON  &kp LEFT       &kp UP    &kp RIGHT  &trans
-&kp LEFT_SHIFT  &kp POUND  &trans          &td_qw_bracket  &kp SQT  &dict_value          &kp GRAVE  &kp SEMICOLON  &kp DOWN  &kp SLASH  &trans   &trans
-                                           &kp LEFT_GUI    &trans   &enter_on_space      &trans     &trans         &trans
-            >;
-        };
-
-        navigation {
-            bindings = <
-              &kp F2  &kp F3     &kp F4  &kp F5          &kp F6                  &kp F7         &kp F8         &kp F9    &kp F10     &kp F11
-              &kp A   &kp LCTRL  &kp D   &kp LEFT_SHIFT  &kp ENTER               &kp PAGE_UP    &kp LEFT       &kp UP    &kp RIGHT   &kp HOME
-&kp LEFT_GUI  &kp Z   &kp X      &kp C   &kp V           &select_current_word    &kp PAGE_DOWN  &kp BACKSPACE  &kp DOWN  &kp DELETE  &kp END   &kp LG(L)
-                                 &trans  &trans          &trans                  &trans         &trans         &trans
-            >;
-        };
-
-        layer_4 {
-            bindings = <
-        &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
-        &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
-                        &trans  &trans  &trans    &trans  &trans  &trans
+                &kp F2        &kp F3          &kp F4          &kp F5   &kp F6               &kp F7         &kp F8    &kp F9     &kp F10    &kp F11
+                &kp LCTRL     &td_ro_bracket  &td_sq_bracket  &kp SQT  &next_str_in_list    &kp COLON      &kp LEFT  &kp UP     &kp RIGHT  &kp RCTRL
+&kp LEFT_SHIFT  &kp LEFT_GUI  &trans          &td_qw_bracket  &kp SQT  &dict_value          &kp SEMICOLON  &kp HOME  &kp DOWN   &kp END    &kp RIGHT_ALT  &kp RIGHT_SHIFT
+                                              &trans          &trans   &enter_on_space      &trans         &trans    &kp LG(L)
             >;
         };
     };
 
-    conditional_layers {
-        compatible = "zmk,conditional-layers";
-
-        press_wtf {
-            if-layers = <1 2>;
-            then-layer = <3>;
-        };
-    };
+    conditional_layers { compatible = "zmk,conditional-layers"; };
 };
