@@ -47,16 +47,6 @@
             bindings = <&kp LEFT_BRACKET>, <&kp RIGHT_BRACKET>;
         };
 
-        hrm: hrm {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            flavor = "tap-preferred";
-            tapping-term-ms = <200>;
-            quick-tap-ms = <200>;
-            require-prior-idle-ms = <125>;
-            bindings = <&kp>, <&kp>;
-        };
-
         td_ro_bracket: td_ro_bracket {
             compatible = "zmk,behavior-tap-dance";
             label = "TD_RO_BRACKET";
@@ -73,14 +63,6 @@
             bindings = <&kp LEFT_BRACE>, <&kp RIGHT_BRACE>;
         };
 
-        td_marks: td_marks {
-            compatible = "zmk,behavior-tap-dance";
-            label = "TD_MARKS";
-            #binding-cells = <0>;
-            tapping-term-ms = <250>;
-            bindings = <&kp EXCLAMATION>, <&kp QUESTION>;
-        };
-
         td_m: td_m {
             compatible = "zmk,behavior-tap-dance";
             label = "TD_M";
@@ -90,95 +72,58 @@
             tapping-term-ms = <150>;
         };
 
-        td_ddots: td_ddots {
-            compatible = "zmk,behavior-tap-dance";
-            label = "TD_DDOTS";
-            #binding-cells = <0>;
-            bindings = <&kp COLON>, <&kp SEMICOLON>;
-
-            tapping-term-ms = <300>;
-        };
-
-        layer_tap_dot_space: layer_tap_dot_space {
-            compatible = "zmk,behavior-hold-tap";
-            label = "LAYER_TAP_DOT_SPACE";
-            bindings = <&mo>, <&kp>;
-
-            #binding-cells = <2>;
-            tapping-term-ms = <300>;
-            flavor = "balanced";
-        };
-
-        td_dot_space: td_dot_space {
-            compatible = "zmk,behavior-tap-dance";
-            label = "TD_DOT_SPACE";
-            #binding-cells = <0>;
-            tapping-term-ms = <300>;
-            bindings = <&kp PERIOD>, <&mc_dot_space>;
-        };
-
-        mod_tap_shift: mod_tap_shift {
-            compatible = "zmk,behavior-hold-tap";
-            label = "MOD_TAP_SHIFT";
-            bindings = <&kp>, <&td_comma_ddot>;
-
-            #binding-cells = <2>;
-            tapping-term-ms = <250>;
-            flavor = "hold-preferred";
-        };
-
-        td_comma_ddot: td_comma_ddot {
-            compatible = "zmk,behavior-tap-dance";
-            label = "TD_COMMA_DDOT";
-            #binding-cells = <0>;
-            tapping-term-ms = <300>;
-            bindings = <&kp COMMA>, <&kp SEMICOLON>;
-        };
-
         enter_on_space: enter_on_space {
             compatible = "zmk,behavior-mod-morph";
             label = "ENTER_ON_SPACE";
             bindings = <&lt 1 SPACE>, <&kp ENTER>;
 
             #binding-cells = <0>;
-            mods = <(MOD_LCTL)>;
+            mods = <(MOD_LCTL|MOD_LSFT|MOD_RSFT|MOD_RCTL)>;
+            keep-mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        delete_on_backspace: delete_on_backspace {
+            compatible = "zmk,behavior-mod-morph";
+            label = "DELETE_ON_BACKSPACE";
+            bindings = <&kp BACKSPACE>, <&kp DELETE>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LCTL|MOD_LSFT|MOD_RSFT|MOD_RCTL)>;
+        };
+
+        undo_on_delete: undo_on_delete {
+            compatible = "zmk,behavior-mod-morph";
+            label = "UNDO_ON_DELETE";
+            bindings = <&kp DELETE>, <&kp LC(Z)>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LCTL|MOD_LSFT|MOD_RSFT|MOD_RCTL)>;
+        };
+
+        hidden_tab: hidden_tab {
+            compatible = "zmk,behavior-mod-morph";
+            label = "HIDDEN_TAB";
+            bindings = <&mo 2>, <&kp TAB>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LCTL|MOD_LSFT|MOD_RSFT|MOD_RCTL|MOD_LALT|MOD_RALT)>;
+            keep-mods = <(MOD_LALT|MOD_RALT)>;
         };
     };
 
     macros {
-        mc_comma_enter: mc_comma_enter {
+        next_str_in_list: next_str_in_list {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp COMMA &kp KP_ENTER>;
-            label = "MC_COMMA_ENTER";
+            bindings = <&kp SQT &kp COMMA &kp SPACE &kp SQT>;
+            label = "NEXT_STR_IN_LIST";
         };
 
-        select_current_word: select_current_word {
+        dict_value: dict_value {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp LC(LEFT_ARROW) &kp LS(LC(RIGHT_ARROW))>;
-            label = "SELECT_CURRENT_WORD";
-        };
-
-        mc_dot_space: mc_dot_space {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&kp PERIOD &kp SPACE>;
-            label = "MC_DOT_SPACE";
-        };
-
-        mc_comma_space: mc_comma_space {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&kp COMMA &kp SPACE>;
-            label = "MC_COMMA_SPACE";
-        };
-
-        mc_unequal: mc_unequal {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&kp EXCL &kp EQUAL>;
-            label = "MC_UNEQUAL";
+            bindings = <&kp SQT &kp COLON &kp SPACE>;
+            label = "DICT_VALUE";
         };
     };
 
@@ -187,28 +132,28 @@
 
         letters {
             bindings = <
-           &kp Q  &kp W  &kp E                 &kp R       &kp T              &kp Y      &kp U          &kp I                          &kp O    &kp P
-           &kp A  &kp S  &kp D                 &kp F       &kp G              &kp H      &kp J          &kp K                          &kp L    &kp SEMICOLON
-&kp LCTRL  &kp Z  &kp X  &kp C                 &kp V       &kp B              &kp N      &td_m          &kp COMMA                      &kp DOT  &kp LEFT_BRACKET  &mt LEFT_SHIFT SQT
-                         &mt LEFT_ALT LA(TAB)  &kp DELETE  &enter_on_space    &lt 2 TAB  &kp BACKSPACE  &mt LEFT_SHIFT LA(LEFT_SHIFT)
+           &kp Q  &kp W  &kp E                 &kp R            &kp T              &kp Y        &kp U                 &kp I                          &kp O    &kp P
+           &kp A  &kp S  &kp D                 &kp F            &kp G              &kp H        &kp J                 &kp K                          &kp L    &kp SEMICOLON
+&kp LCTRL  &kp Z  &kp X  &kp C                 &kp V            &kp B              &kp N        &td_m                 &kp COMMA                      &kp DOT  &kp LEFT_BRACKET  &mt LEFT_SHIFT SQT
+                         &mt LEFT_ALT LA(TAB)  &undo_on_delete  &enter_on_space    &hidden_tab  &delete_on_backspace  &mt LEFT_SHIFT LA(LEFT_SHIFT)
             >;
         };
 
         numbers {
             bindings = <
-                &kp ESCAPE  &kp LESS_THAN  &kp CARET  &kp GREATER_THAN  &kp PERCENT    &trans  &kp N7  &kp N8  &kp N9  &trans
-                &trans      &kp ASTERISK   &kp PLUS   &kp EQUAL         &kp ENTER      &trans  &kp N4  &kp N5  &kp N6  &trans
-&kp LEFT_SHIFT  &trans      &kp SLASH      &kp MINUS  &kp UNDERSCORE    &kp POUND      &kp N0  &kp N1  &kp N2  &kp N3  &kp PERIOD  &kp LEFT_ALT
-                                           &trans     &trans            &mo 2          &mo 1   &trans  &trans
+          &kp ESCAPE  &kp LS(EXCL)  &kp LS(AT)    &kp LS(POUND)  &kp LS(DLLR)    &kp LS(PRCNT)   &kp LS(CARET)     &kp LS(AMPS)   &kp LS(PIPE)  &kp BSLH
+          &kp N0      &kp N1        &kp N2        &kp N3         &kp N4          &kp N5          &kp N6            &kp N7         &kp N8        &kp N9
+&kp LALT  &kp LCTRL   &kp SLASH     &kp ASTERISK  &kp MINUS      &kp PLUS        &kp LESS_THAN   &kp GREATER_THAN  &kp LS(SLASH)  &kp SLASH     &kp RCTRL  &kp LEFT_ALT
+                                    &kp LEFT_GUI  &trans         &trans          &kp UNDERSCORE  &trans            &kp N0
             >;
         };
 
         symbols {
             bindings = <
-                &kp ESCAPE  &trans          &trans          &trans   &trans       &trans     &kp SEMICOLON    &trans         &trans         &trans
-                &kp LC(A)   &td_ro_bracket  &td_sq_bracket  &kp SQT  &kp ENTER    &trans     &kp COLON        &kp AT_SIGN    &kp AMPERSAND  &trans
-&kp LEFT_SHIFT  &kp LC(Z)   &trans          &td_qw_bracket  &trans   &kp POUND    &kp GRAVE  &kp EXCLAMATION  &kp LS(SLASH)  &kp SLASH      &trans  &trans
-                                            &trans          &trans   &mo 2        &mo 1      &trans           &trans
+                &kp F2     &kp F3          &kp F4          &kp F5   &kp F6               &kp F7     &kp F8         &kp F9    &kp F10    &kp F11
+                &kp GRAVE  &td_ro_bracket  &td_sq_bracket  &kp SQT  &next_str_in_list    &kp COLON  &kp LEFT       &kp UP    &kp RIGHT  &trans
+&kp LEFT_SHIFT  &kp POUND  &trans          &td_qw_bracket  &kp SQT  &dict_value          &kp GRAVE  &kp SEMICOLON  &kp DOWN  &kp SLASH  &trans   &trans
+                                           &kp LEFT_GUI    &trans   &enter_on_space      &trans     &trans         &trans
             >;
         };
 
