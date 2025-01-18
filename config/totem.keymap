@@ -87,15 +87,6 @@
             keep-mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
-        delete_on_backspace: delete_on_backspace {
-            compatible = "zmk,behavior-mod-morph";
-            label = "DELETE_ON_BACKSPACE";
-            bindings = <&kp BACKSPACE>, <&kp DELETE>;
-
-            #binding-cells = <0>;
-            mods = <(MOD_LCTL|MOD_LSFT|MOD_RSFT|MOD_RCTL)>;
-        };
-
         undo_on_delete: undo_on_delete {
             compatible = "zmk,behavior-mod-morph";
             label = "UNDO_ON_DELETE";
@@ -115,13 +106,33 @@
             keep-mods = <(MOD_LALT|MOD_RALT|MOD_LSFT|MOD_RSFT)>;
         };
 
-        grave_esc: grave_esc {
+        q_esc: q_esc {
             compatible = "zmk,behavior-mod-morph";
-            label = "GRAVE_ESC";
-            bindings = <&kp GRAVE>, <&kp ESC>;
+            label = "Q_ESC";
+            bindings = <&kp Q>, <&kp ESC>;
 
             #binding-cells = <0>;
             mods = <(MOD_LCTL|MOD_LSFT|MOD_RSFT|MOD_RCTL|MOD_LALT|MOD_RALT|MOD_RGUI|MOD_LGUI)>;
+        };
+
+        sticky_shift: sticky_shift {
+            compatible = "zmk,behavior-sticky-key";
+            label = "STICKY_SHIFT";
+            bindings = <&kp>;
+            #binding-cells = <1>;
+            quick-release;
+            release-after-ms = <100>;
+        };
+
+        modifiers_on_left: modifiers_on_left {
+            compatible = "zmk,behavior-hold-tap";
+            label = "MODIFIERS_ON_LEFT";
+            bindings = <&kp>, <&sticky_shift>;
+
+            #binding-cells = <2>;
+            retro-tap;
+            tapping-term-ms = <200>;
+            quick-tap-ms = <150>;
         };
     };
 
@@ -146,19 +157,19 @@
 
         letters {
             bindings = <
-           &kp Q  &kp W  &kp E                 &kp R            &kp T              &kp Y        &kp U                 &kp I                          &kp O    &kp P
-           &kp A  &kp S  &kp D                 &kp F            &kp G              &kp H        &kp J                 &kp K                          &kp L    &kp SEMICOLON
-&kp LCTRL  &kp Z  &kp X  &kp C                 &kp V            &kp B              &kp N        &td_m                 &kp COMMA                      &kp DOT  &kp LEFT_BRACKET  &mt LEFT_SHIFT SQT
-                         &mt LEFT_ALT LA(TAB)  &undo_on_delete  &enter_on_space    &hidden_tab  &delete_on_backspace  &mt LEFT_SHIFT LA(LEFT_SHIFT)
+                                     &q_esc  &kp W  &kp E                 &kp R            &kp T              &kp Y        &kp U          &kp I                          &kp O    &kp P
+                                     &kp A   &kp S  &kp D                 &kp F            &kp G              &kp H        &kp J          &kp K                          &kp L    &kp SEMICOLON
+&modifiers_on_left LCTRL LEFT_SHIFT  &kp Z   &kp X  &kp C                 &kp V            &kp B              &kp N        &td_m          &kp COMMA                      &kp DOT  &kp LEFT_BRACKET  &mt LEFT_SHIFT SQT
+                                                    &mt LEFT_ALT LA(TAB)  &undo_on_delete  &enter_on_space    &hidden_tab  &kp BACKSPACE  &mt LEFT_SHIFT LA(LEFT_SHIFT)
             >;
         };
 
         numbers {
             bindings = <
-          &grave_esc  &kp LS(EXCL)  &kp LS(AT)    &kp LS(POUND)  &kp LS(DLLR)    &kp LS(PRCNT)   &kp LS(CARET)     &kp LS(AMPS)   &kp LS(PIPE)  &kp BSLH
-          &kp N0      &kp N1        &kp N2        &kp N3         &kp N4          &kp N5          &kp N6            &kp N7         &kp N8        &kp N9
-&kp LALT  &kp LCTRL   &kp SLASH     &kp ASTERISK  &kp MINUS      &kp PLUS        &kp LESS_THAN   &kp GREATER_THAN  &kp LS(SLASH)  &kp SLASH     &kp RCTRL  &kp RIGHT_ALT
-                                    &sk LEFT_GUI  &trans         &trans          &kp UNDERSCORE  &trans            &kp EQUAL
+          &kp GRAVE  &kp LS(EXCL)  &kp LS(AT)    &kp LS(POUND)  &kp LS(DLLR)    &kp LS(PRCNT)   &kp LS(CARET)     &kp LS(AMPS)   &kp LS(PIPE)  &kp BSLH
+          &kp N0     &kp N1        &kp N2        &kp N3         &kp N4          &kp N5          &kp N6            &kp N7         &kp N8        &kp N9
+&kp LALT  &kp LCTRL  &kp SLASH     &kp ASTERISK  &kp MINUS      &kp PLUS        &kp LESS_THAN   &kp GREATER_THAN  &kp LS(SLASH)  &kp SLASH     &kp RCTRL  &kp RIGHT_ALT
+                                   &sk LEFT_GUI  &trans         &trans          &kp UNDERSCORE  &trans            &kp EQUAL
             >;
         };
 
