@@ -163,10 +163,10 @@
 
         numbers {
             bindings = <
-                            &kp GRAVE   &kp LS(EXCL)  &kp LS(AT)    &kp LS(POUND)  &kp LS(DLLR)    &kp LS(PRCNT)   &kp LS(CARET)     &kp LS(AMPS)   &kp LS(PIPE)  &kp BSLH
-                            &kp N0      &kp N1        &kp N2        &kp N3         &kp N4          &kp N5          &kp N6            &kp N7         &kp N8        &kp N9
-&mods_on_left_1 LEFT_ALT 0  &kp PERIOD  &kp SLASH     &kp ASTERISK  &kp MINUS      &kp PLUS        &kp LESS_THAN   &kp GREATER_THAN  &kp LS(SLASH)  &kp SLASH     &kp COMMA  &kp RIGHT_ALT
-                                                      &sk LEFT_GUI  &trans         &trans          &kp UNDERSCORE  &trans            &kp EQUAL
+                            &kp GRAVE   &kp LS(EXCL)  &kp LS(AT)    &kp LS(POUND)  &kp LS(DLLR)    &kp LS(PRCNT)  &kp LS(CARET)     &kp LS(AMPS)   &kp LS(PIPE)  &kp BSLH
+                            &kp N0      &kp N1        &kp N2        &kp N3         &kp N4          &kp N5         &kp N6            &kp N7         &kp N8        &kp N9
+&mods_on_left_1 LEFT_ALT 0  &kp PERIOD  &kp SLASH     &kp ASTERISK  &kp MINUS      &kp PLUS        &kp LESS_THAN  &kp GREATER_THAN  &kp LS(SLASH)  &kp SLASH     &kp COMMA  &kp RIGHT_ALT
+                                                      &sk LEFT_GUI  &trans         &trans          &kp EQUAL      &trans            &trans
             >;
         };
 
