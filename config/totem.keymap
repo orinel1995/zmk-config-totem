@@ -35,15 +35,6 @@
     };
 
     behaviors {
-        ss_hs_modmorph: ss_hs_modmorph {
-            compatible = "zmk,behavior-mod-morph";
-            label = "SS_HS_MODMORPH";
-            bindings = <&kp M>, <&kp RIGHT_BRACKET>;
-
-            #binding-cells = <0>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-
         td_sq_bracket: td_sq_bracket {
             compatible = "zmk,behavior-tap-dance";
             label = "TD_SQ_BRACKET";
@@ -121,18 +112,19 @@
             bindings = <&kp>;
             #binding-cells = <1>;
             quick-release;
-            release-after-ms = <100>;
+            release-after-ms = <1000>;
         };
 
         modifiers_on_left: modifiers_on_left {
             compatible = "zmk,behavior-hold-tap";
             label = "MODIFIERS_ON_LEFT";
-            bindings = <&kp>, <&sticky_shift>;
+            bindings = <&kp>, <&sk>;
 
             #binding-cells = <2>;
             retro-tap;
             tapping-term-ms = <200>;
             quick-tap-ms = <150>;
+            flavor = "hold-preferred";
         };
     };
 
