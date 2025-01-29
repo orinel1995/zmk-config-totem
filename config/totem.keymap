@@ -16,9 +16,15 @@
 #define ADJU  3
 
 #include <behaviors.dtsi>
+#include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
 
-&sk { quick-release; };
+&sk {
+    quick-release;
+    release-after-ms = <1500>;
+};
+
+&lt { flavor = "balanced"; };
 
 / {
     combos {
@@ -33,6 +39,16 @@
         ctrl_alt_delete {
             bindings = <&kp LC(LA(DELETE))>;
             key-positions = <35 36 37>;
+        };
+
+        bt_0 {
+            bindings = <&bt BT_SEL 0>;
+            key-positions = <0 10 21>;
+        };
+
+        bt_1 {
+            bindings = <&bt BT_SEL 1>;
+            key-positions = <22 11 1>;
         };
     };
 
@@ -147,6 +163,13 @@
             bindings = <&kp SQT &kp COLON &kp SPACE>;
             label = "DICT_VALUE";
         };
+
+        select_current_word: select_current_word {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LC(LEFT) &kp LC(LS(RIGHT))>;
+            label = "SELECT_CURRENT_WORD";
+        };
     };
 
     keymap {
@@ -172,10 +195,10 @@
 
         symbols {
             bindings = <
-                &kp F2            &kp F3          &kp F4          &kp F5   &kp F6               &kp F7         &kp F8             &kp F9     &kp F10    &kp F11
-                &kp LCTRL         &td_ro_bracket  &td_sq_bracket  &kp SQT  &next_str_in_list    &kp COLON      &kp LEFT           &kp UP     &kp RIGHT  &kp RCTRL
-&kp LEFT_SHIFT  &kp LC(LEFT_ALT)  &trans          &td_qw_bracket  &kp SQT  &dict_value          &kp SEMICOLON  &kp HOME           &kp DOWN   &kp END    &kp RIGHT_ALT  &kp RIGHT_SHIFT
-                                                  &trans          &trans   &enter_on_space      &trans         &kp LC(BACKSPACE)  &kp LG(L)
+                &kp F2            &kp F3          &kp F4          &kp F5   &kp F6               &kp F7         &kp F8                &kp F9     &kp F10    &kp F11
+                &kp LCTRL         &td_ro_bracket  &td_sq_bracket  &kp SQT  &next_str_in_list    &kp COLON      &kp LEFT              &kp UP     &kp RIGHT  &kp RCTRL
+&kp LEFT_SHIFT  &kp LC(LEFT_ALT)  &trans          &td_qw_bracket  &kp SQT  &dict_value          &kp SEMICOLON  &select_current_word  &kp DOWN   &kp END    &kp RIGHT_ALT  &kp F12
+                                                  &trans          &trans   &enter_on_space      &trans         &kp LC(BACKSPACE)     &kp LG(L)
             >;
         };
     };
