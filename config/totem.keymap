@@ -186,7 +186,7 @@
             label = "SELECT_CURRENT_WORD";
         };
 
-        less_than: less_than {
+        mp_less_than: less_than {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings =
@@ -198,6 +198,244 @@
                 <&kp LEFT_ALT>;
 
             label = "LESS_THAN";
+        };
+
+        mp_more_than: more_than {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press>,
+                <&kp LEFT_ALT>,
+                <&macro_tap>,
+                <&kp KP_NUMBER_6 &kp KP_NUMBER_2>,
+                <&macro_release>,
+                <&kp LEFT_ALT>;
+
+            label = "MORE_THAN";
+        };
+
+        mp_at: mp_at {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press>,
+                <&kp LEFT_ALT>,
+                <&macro_tap>,
+                <&kp KP_NUMBER_6 &kp KP_NUMBER_4>,
+                <&macro_release>,
+                <&kp LEFT_ALT>;
+
+            label = "MP_AT";
+        };
+
+        mp_hash: mp_hash {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press>,
+                <&kp LEFT_ALT>,
+                <&macro_tap>,
+                <&kp KP_N3 &kp KP_NUMBER_5>,
+                <&macro_release>,
+                <&kp LEFT_ALT>;
+
+            label = "MP_HASH";
+        };
+
+        mp_dollar: mp_dollar {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press>,
+                <&kp LEFT_ALT>,
+                <&macro_tap>,
+                <&kp KP_N3 &kp KP_NUMBER_6>,
+                <&macro_release>,
+                <&kp LEFT_ALT>;
+
+            label = "MP_DOLLAR";
+        };
+
+        mp_caret: mp_caret {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press>,
+                <&kp LEFT_ALT>,
+                <&macro_tap>,
+                <&kp KP_NUMBER_9 &kp KP_NUMBER_4>,
+                <&macro_release>,
+                <&kp LEFT_ALT>;
+
+            label = "MP_CARET";
+        };
+
+        mp_ampersand: mp_ampersand {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press>,
+                <&kp LEFT_ALT>,
+                <&macro_tap>,
+                <&kp KP_N3 &kp KP_NUMBER_8>,
+                <&macro_release>,
+                <&kp LEFT_ALT>;
+
+            label = "MP_AMPERSAND";
+        };
+
+        mp_s_quote: mp_s_quote {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press>,
+                <&kp LEFT_ALT>,
+                <&macro_tap>,
+                <&kp KP_NUMBER_3 &kp KP_NUMBER_9>,
+                <&macro_release>,
+                <&kp LEFT_ALT>;
+
+            label = "MP_S_QUOTE";
+        };
+
+        mp_d_quote: mp_d_quote {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press>,
+                <&kp LEFT_ALT>,
+                <&macro_tap>,
+                <&kp KP_NUMBER_3 &kp KP_NUMBER_9>,
+                <&macro_release>,
+                <&kp LEFT_ALT>;
+
+            label = "MP_D_QUOTE";
+        };
+
+        mp_dot_dot: mp_dot_dot {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press>,
+                <&kp LEFT_ALT>,
+                <&macro_tap>,
+                <&kp KP_NUMBER_5 &kp KP_NUMBER_8>,
+                <&macro_release>,
+                <&kp LEFT_ALT>;
+
+            label = "MP_DOT_DOT";
+        };
+
+        mp_dot_comma: mp_dot_comma {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press>,
+                <&kp LEFT_ALT>,
+                <&macro_tap>,
+                <&kp KP_NUMBER_5 &kp KP_NUMBER_9>,
+                <&macro_release>,
+                <&kp LEFT_ALT>;
+
+            label = "MP_DOT_COMMA";
+        };
+
+        mp_grave: mp_grave {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press>,
+                <&kp LEFT_ALT>,
+                <&macro_tap>,
+                <&kp KP_NUMBER_9 &kp KP_NUMBER_6>,
+                <&macro_release>,
+                <&kp LEFT_ALT>;
+
+            label = "MP_GRAVE";
+        };
+
+        mp_comma: mp_comma {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press>,
+                <&kp LEFT_ALT>,
+                <&macro_tap>,
+                <&kp KP_NUMBER_4 &kp KP_NUMBER_4>,
+                <&macro_release>,
+                <&kp LEFT_ALT>;
+
+            label = "MP_COMMA";
+        };
+
+        mp_dot: mp_dot {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press>,
+                <&kp LEFT_ALT>,
+                <&macro_tap>,
+                <&kp KP_NUMBER_4 &kp KP_NUMBER_6>,
+                <&macro_release>,
+                <&kp LEFT_ALT>;
+
+            label = "MP_DOT";
+        };
+
+        mp_question: mp_question {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press>,
+                <&kp LEFT_ALT>,
+                <&macro_tap>,
+                <&kp KP_NUMBER_6 &kp KP_NUMBER_3>,
+                <&macro_release>,
+                <&kp LEFT_ALT>;
+
+            label = "MP_QUESTION";
+        };
+
+        mp_exclamation: mp_exclamation {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press>,
+                <&kp LEFT_ALT>,
+                <&macro_tap>,
+                <&kp KP_NUMBER_3 &kp KP_NUMBER_3>,
+                <&macro_release>,
+                <&kp LEFT_ALT>;
+
+            label = "MP_EXCLAMATION";
+        };
+
+        mp_backslash: mp_backslash {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press>,
+                <&kp LEFT_ALT>,
+                <&macro_tap>,
+                <&kp KP_NUMBER_9 &kp KP_NUMBER_2>,
+                <&macro_release>,
+                <&kp LEFT_ALT>;
+
+            label = "MP_BACKSLASH";
+        };
+
+        mp_minus: mp_minus {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press>,
+                <&kp LEFT_ALT>,
+                <&macro_tap>,
+                <&kp KP_NUMBER_4 &kp KP_NUMBER_5>,
+                <&macro_release>,
+                <&kp LEFT_ALT>;
+
+            label = "MP_MINUS";
         };
     };
 
@@ -215,10 +453,10 @@
 
         numbers {
             bindings = <
-                            &kp GRAVE   &kp LS(EXCL)  &kp LS(AT)    &kp LS(POUND)  &kp LS(DLLR)    &kp LS(PRCNT)  &kp LS(CARET)     &kp LS(AMPS)   &kp LS(PIPE)  &kp BSLH
-                            &kp N0      &kp N1        &kp N2        &kp N3         &kp N4          &kp N5         &kp N6            &kp N7         &kp N8        &kp N9
-&mods_on_left_1 LEFT_ALT 0  &kp PERIOD  &kp SLASH     &kp ASTERISK  &kp MINUS      &kp PLUS        &less_than     &kp GREATER_THAN  &kp LS(SLASH)  &kp SLASH     &kp COMMA  &kp RIGHT_ALT
-                                                      &sk LEFT_GUI  &trans         &trans          &kp EQUAL      &kp KP_NUMBER_6   &kp KP_NUM
+                            &mp_grave      &mp_exclamation  &mp_at        &mp_hash   &mp_dollar    &kp LS(PRCNT)  &mp_caret      &mp_ampersand  &kp LS(PIPE)  &kp BSLH
+                            &kp N0         &kp N1           &kp N2        &kp N3     &kp N4        &kp N5         &kp N6         &kp N7         &kp N8        &kp N9
+&mods_on_left_1 LEFT_ALT 0  &mp_backslash  &kp SLASH        &kp ASTERISK  &kp MINUS  &kp PLUS      &mp_less_than  &mp_more_than  &mp_comma      &mp_dot       &mp_question  &kp RIGHT_ALT
+                                                            &kp KP_NUM    &trans     &trans        &mp_minus      &trans         &kp KP_NUM
             >;
         };
 
