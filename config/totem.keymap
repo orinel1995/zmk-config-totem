@@ -71,7 +71,7 @@
             label = "TD_RO_BRACKET";
             #binding-cells = <0>;
             tapping-term-ms = <250>;
-            bindings = <&mp_l_ro_br>, <&mp_r_ro_br>;
+            bindings = <&kp LPAR>, <&kp RIGHT_PARENTHESIS>;
         };
 
         td_qw_bracket: td_qw_bracket {
