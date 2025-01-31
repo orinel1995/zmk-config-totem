@@ -320,7 +320,7 @@
                 <&macro_press>,
                 <&kp LEFT_ALT>,
                 <&macro_tap>,
-                <&kp KP_NUMBER_3 &kp KP_NUMBER_9>,
+                <&kp KP_NUMBER_3 &kp KP_NUMBER_4>,
                 <&macro_release>,
                 <&kp LEFT_ALT>;
 
@@ -636,10 +636,10 @@
 
         numbers {
             bindings = <
-              &mp_grave      &mp_exclamation  &mp_at        &mp_hash    &mp_dollar    &mp_percent    &mp_caret      &mp_ampersand  &mp_star  &mp_slash
-              &kp N0         &kp N1           &kp N2        &kp N3      &kp N4        &kp N5         &kp N6         &kp N7         &kp N8    &kp N9
-&kp LEFT_ALT  &mp_backslash  &td_ro_bracket   &mm_brackets  &mm_quotes  &mm_dooots    &mp_less_than  &mp_more_than  &mp_comma      &mp_dot   &mp_question  &mp_pipe
-                                              &kp KP_NUM    &trans      &trans        &mp_minus      &mp_plus       &mp_equal
+           &mp_grave      &mp_exclamation  &mp_at        &mp_hash    &mp_dollar    &mp_percent    &mp_caret      &mp_ampersand  &mp_star  &mp_slash
+           &kp N0         &kp N1           &kp N2        &kp N3      &kp N4        &kp N5         &kp N6         &kp N7         &kp N8    &kp N9
+&kp LCTRL  &mp_backslash  &td_ro_bracket   &mm_brackets  &mm_quotes  &mm_dooots    &mp_less_than  &mp_more_than  &mp_comma      &mp_dot   &mp_question  &mp_pipe
+                                           &kp KP_NUM    &trans      &trans        &mp_minus      &mp_plus       &mp_equal
             >;
         };
 
