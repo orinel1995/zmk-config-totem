@@ -50,11 +50,6 @@
             bindings = <&bt BT_SEL 1>;
             key-positions = <22 11 1>;
         };
-
-        alttab {
-            bindings = <&kp LA(TAB)>;
-            key-positions = <0 1 2>;
-        };
     };
 
     behaviors {
@@ -107,7 +102,7 @@
             bindings = <&kp DELETE>, <&kp LC(Z)>;
 
             #binding-cells = <0>;
-            mods = <(MOD_LCTL|MOD_LSFT|MOD_RSFT|MOD_RCTL)>;
+            mods = <(MOD_LCTL|MOD_RCTL)>;
         };
 
         hidden_tab: hidden_tab {
@@ -144,38 +139,50 @@
         mm_altab_on_alt: mm_altab_on_alt {
             compatible = "zmk,behavior-mod-morph";
             label = "MM_ALTAB_ON_ALT";
-            bindings = <&kp LEFT_ALT>, <&kp A>;
+            bindings = <&kp LEFT_ALT>, <&kp LA(TAB)>;
 
             #binding-cells = <0>;
             mods = <(MOD_LCTL)>;
-            keep-mods = <(MOD_LCTL)>;
         };
 
-        mm_dooots: mm_dooots {
-            compatible = "zmk,behavior-mod-morph";
-            label = "MM_DOOOTS";
+        td_doots: td_doots {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TD_DOOTS";
+            #binding-cells = <0>;
+            tapping-term-ms = <250>;
             bindings = <&mp_dot_dot>, <&mp_dot_comma>;
-
-            #binding-cells = <0>;
-            mods = <(MOD_LCTL|MOD_LSFT|MOD_LALT|MOD_LGUI|MOD_RCTL|MOD_RSFT|MOD_RALT|MOD_RGUI)>;
         };
 
-        mm_quotes: mm_quotes {
-            compatible = "zmk,behavior-mod-morph";
-            label = "MM_QUOTES";
+        td_quotes: td_quotes {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TD_QUOTES";
+            #binding-cells = <0>;
+            tapping-term-ms = <250>;
             bindings = <&mp_s_quote>, <&mp_d_quote>;
-
-            #binding-cells = <0>;
-            mods = <(MOD_LCTL|MOD_LSFT|MOD_LALT|MOD_LGUI|MOD_RCTL|MOD_RSFT|MOD_RALT|MOD_RGUI)>;
         };
 
-        mm_brackets: mm_brackets {
-            compatible = "zmk,behavior-mod-morph";
-            label = "MM_BRACKETS";
-            bindings = <&td_sq_bracket>, <&td_qw_bracket>;
-
+        td_marks: td_marks {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TD_MARKS";
             #binding-cells = <0>;
-            mods = <(MOD_LCTL|MOD_LSFT|MOD_LALT|MOD_LGUI|MOD_RCTL|MOD_RSFT|MOD_RALT|MOD_RGUI)>;
+            tapping-term-ms = <250>;
+            bindings = <&mp_exclamation>, <&mp_question>;
+        };
+
+        td_plus_minus: td_plus_minus {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TD_PLUS_MINUS";
+            #binding-cells = <0>;
+            tapping-term-ms = <250>;
+            bindings = <&mp_minus>, <&mp_plus>;
+        };
+
+        td_slash_back: td_slash_back {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TD_SLASH_BACK";
+            #binding-cells = <0>;
+            tapping-term-ms = <250>;
+            bindings = <&mp_slash>, <&mp_backslash>;
         };
     };
 
@@ -636,19 +643,19 @@
 
         numbers {
             bindings = <
-           &mp_grave      &mp_exclamation  &mp_at        &mp_hash    &mp_dollar    &mp_percent    &mp_caret      &mp_ampersand  &mp_star  &mp_slash
-           &kp N0         &kp N1           &kp N2        &kp N3      &kp N4        &kp N5         &kp N6         &kp N7         &kp N8    &kp N9
-&kp LCTRL  &mp_backslash  &td_ro_bracket   &mm_brackets  &mm_quotes  &mm_dooots    &mp_less_than  &mp_more_than  &mp_comma      &mp_dot   &mp_question  &mp_pipe
-                                           &kp KP_NUM    &trans      &trans        &mp_minus      &mp_plus       &mp_equal
+           &mp_grave       &td_marks       &mp_at          &mp_hash    &mp_dollar    &mp_percent     &mp_caret      &mp_ampersand  &mp_star  &td_slash_back
+           &kp N0          &kp N1          &kp N2          &kp N3      &kp N4        &kp N5          &kp N6         &kp N7         &kp N8    &kp N9
+&kp LCTRL  &td_qw_bracket  &td_ro_bracket  &td_sq_bracket  &td_quotes  &td_doots     &mp_less_than   &mp_more_than  &mp_comma      &mp_dot   &mp_question    &mp_pipe
+                                           &kp KP_NUM      &trans      &trans        &td_plus_minus  &trans         &mp_equal
             >;
         };
 
         symbols {
             bindings = <
-                &kp F2            &kp F3          &kp F4          &kp F5   &kp F6               &kp F7         &kp F8                &kp F9     &kp F10    &kp F11
-                &kp LCTRL         &td_ro_bracket  &td_sq_bracket  &kp SQT  &next_str_in_list    &kp COLON      &kp LEFT              &kp UP     &kp RIGHT  &kp RCTRL
-&kp LEFT_SHIFT  &kp LC(LEFT_ALT)  &trans          &td_qw_bracket  &kp SQT  &dict_value          &kp SEMICOLON  &select_current_word  &kp DOWN   &kp END    &kp RIGHT_ALT  &kp F12
-                                                  &trans          &trans   &enter_on_space      &trans         &kp LC(BACKSPACE)     &kp LG(L)
+           &kp F2  &kp F3  &kp F4  &kp F5  &kp F6            &kp F7  &kp F8                &kp F9     &kp F10    &kp F11
+           &trans  &trans  &trans  &trans  &trans            &trans  &kp LEFT              &kp UP     &kp RIGHT  &kp RCTRL
+&kp LCTRL  &trans  &trans  &trans  &trans  &trans            &trans  &select_current_word  &kp DOWN   &kp END    &kp RIGHT_ALT  &kp F12
+                           &trans  &trans  &kp LEFT_SHIFT    &trans  &trans                &kp LG(L)
             >;
         };
     };
