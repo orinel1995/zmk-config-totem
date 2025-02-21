@@ -654,26 +654,26 @@
             bindings = <
                                   &q_esc  &kp W  &kp E             &kp R            &kp T              &kp Y        &kp U          &kp I                          &kp O    &kp P
                                   &kp A   &kp S  &kp D             &kp F            &kp G              &kp H        &kp J          &kp K                          &kp L    &kp SEMICOLON
-&mods_on_left_0 LCTRL LEFT_SHIFT  &kp Z   &kp X  &kp C             &kp V            &kp B              &kp N        &td_m          &mm_comma                      &mm_dot  &kp LEFT_BRACKET  &kp SQT
+&mods_on_left_0 LCTRL LEFT_SHIFT  &kp Z   &kp X  &kp C             &kp V            &kp B              &kp N        &td_m          &kp COMMA                      &kp DOT  &kp LEFT_BRACKET  &kp SQT
                                                  &mm_altab_on_alt  &undo_on_delete  &enter_on_space    &hidden_tab  &kp BACKSPACE  &mt LEFT_SHIFT LA(LEFT_SHIFT)
             >;
         };
 
         numbers {
             bindings = <
-           &mp_grave       &td_marks       &mp_at          &mp_hash    &mp_dollar    &mp_percent     &mp_caret      &mp_ampersand  &mp_star  &td_slash_back
-           &kp N0          &kp N1          &kp N2          &kp N3      &kp N4        &kp N5          &kp N6         &kp N7         &kp N8    &kp N9
-&kp LCTRL  &td_qw_bracket  &td_ro_bracket  &td_sq_bracket  &td_quotes  &td_doots     &mp_less_than   &mp_more_than  &mp_comma      &mp_dot   &mp_question    &mp_pipe
-                                           &kp KP_NUM      &trans      &trans        &td_plus_minus  &trans         &mp_equal
+        &mp_grave       &td_marks       &mp_at          &mp_hash    &mp_dollar    &mp_percent     &mp_caret      &mp_ampersand  &mp_star  &td_slash_back
+        &kp N0          &kp N1          &kp N2          &kp N3      &kp N4        &kp N5          &kp N6         &kp N7         &kp N8    &kp N9
+&trans  &td_qw_bracket  &td_ro_bracket  &td_sq_bracket  &td_quotes  &td_doots     &mp_less_than   &mp_more_than  &mp_comma      &mp_dot   &mp_question    &mp_pipe
+                                        &kp KP_NUM      &trans      &trans        &td_plus_minus  &trans         &mp_equal
             >;
         };
 
         symbols {
             bindings = <
-           &kp F2  &kp F3  &kp F4  &kp F5  &kp F6            &kp F7  &kp F8                &kp F9     &kp F10    &kp F11
-           &trans  &trans  &trans  &trans  &trans            &trans  &kp LEFT              &kp UP     &kp RIGHT  &kp RCTRL
-&kp LCTRL  &trans  &trans  &trans  &trans  &trans            &trans  &select_current_word  &kp DOWN   &kp END    &kp RIGHT_ALT  &kp F12
-                           &trans  &trans  &kp LEFT_SHIFT    &trans  &trans                &kp LG(L)
+        &kp F2  &kp F3  &kp F4  &kp F5  &kp F6    &kp F7         &kp F8    &kp F9     &kp F10    &kp F11
+        &trans  &trans  &trans  &trans  &trans    &kp PG_UP      &kp LEFT  &kp UP     &kp RIGHT  &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &kp PAGE_DOWN  &trans    &kp DOWN   &trans     &trans   &kp F12
+                        &trans  &trans  &trans    &none          &trans    &kp LG(L)
             >;
         };
     };
