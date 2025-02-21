@@ -184,6 +184,24 @@
             tapping-term-ms = <250>;
             bindings = <&mp_slash>, <&mp_backslash>;
         };
+
+        mm_comma: mm_comma {
+            compatible = "zmk,behavior-mod-morph";
+            label = "MM_COMMA";
+            bindings = <&kp COMMA>, <&mp_comma>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LCTL)>;
+        };
+
+        mm_dot: mm_dot {
+            compatible = "zmk,behavior-mod-morph";
+            label = "MM_DOT";
+            bindings = <&kp DOT>, <&mp_dot>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LCTL)>;
+        };
     };
 
     macros {
@@ -636,7 +654,7 @@
             bindings = <
                                   &q_esc  &kp W  &kp E             &kp R            &kp T              &kp Y        &kp U          &kp I                          &kp O    &kp P
                                   &kp A   &kp S  &kp D             &kp F            &kp G              &kp H        &kp J          &kp K                          &kp L    &kp SEMICOLON
-&mods_on_left_0 LCTRL LEFT_SHIFT  &kp Z   &kp X  &kp C             &kp V            &kp B              &kp N        &td_m          &kp COMMA                      &kp DOT  &kp LEFT_BRACKET  &kp SQT
+&mods_on_left_0 LCTRL LEFT_SHIFT  &kp Z   &kp X  &kp C             &kp V            &kp B              &kp N        &td_m          &mm_comma                      &mm_dot  &kp LEFT_BRACKET  &kp SQT
                                                  &mm_altab_on_alt  &undo_on_delete  &enter_on_space    &hidden_tab  &kp BACKSPACE  &mt LEFT_SHIFT LA(LEFT_SHIFT)
             >;
         };
