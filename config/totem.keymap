@@ -50,6 +50,11 @@
             bindings = <&bt BT_SEL 1>;
             key-positions = <22 11 1>;
         };
+
+        mobile {
+            bindings = <&bt BT_SEL 2>;
+            key-positions = <2 12 23>;
+        };
     };
 
     behaviors {
@@ -183,24 +188,6 @@
             #binding-cells = <0>;
             tapping-term-ms = <250>;
             bindings = <&mp_slash>, <&mp_backslash>;
-        };
-
-        mm_comma: mm_comma {
-            compatible = "zmk,behavior-mod-morph";
-            label = "MM_COMMA";
-            bindings = <&kp COMMA>, <&mp_comma>;
-
-            #binding-cells = <0>;
-            mods = <(MOD_LCTL)>;
-        };
-
-        mm_dot: mm_dot {
-            compatible = "zmk,behavior-mod-morph";
-            label = "MM_DOT";
-            bindings = <&kp DOT>, <&mp_dot>;
-
-            #binding-cells = <0>;
-            mods = <(MOD_LCTL)>;
         };
     };
 
@@ -670,10 +657,10 @@
 
         symbols {
             bindings = <
-        &kp F2  &kp F3  &kp F4  &kp F5  &kp F6    &kp F7         &kp F8    &kp F9     &kp F10    &kp F11
-        &trans  &trans  &trans  &trans  &trans    &kp PG_UP      &kp LEFT  &kp UP     &kp RIGHT  &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &kp PAGE_DOWN  &trans    &kp DOWN   &trans     &trans   &kp F12
-                        &trans  &trans  &trans    &none          &trans    &kp LG(L)
+        &kp F2  &kp F3  &kp F4  &kp F5  &kp F6            &kp F7         &kp F8    &kp F9     &kp F10    &kp F11
+        &trans  &trans  &trans  &trans  &trans            &kp PG_UP      &kp LEFT  &kp UP     &kp RIGHT  &trans
+&trans  &trans  &trans  &trans  &trans  &trans            &kp PAGE_DOWN  &trans    &kp DOWN   &trans     &trans   &kp F12
+                        &trans  &trans  &kp LEFT_SHIFT    &none          &trans    &kp LG(L)
             >;
         };
     };
