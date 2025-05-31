@@ -82,15 +82,6 @@
             bindings = <&mp_l_fg_br>, <&mp_r_fg_br>;
         };
 
-        td_m: td_m {
-            compatible = "zmk,behavior-tap-dance";
-            label = "TD_M";
-            #binding-cells = <0>;
-            bindings = <&kp M>, <&kp RIGHT_BRACKET>;
-
-            tapping-term-ms = <150>;
-        };
-
         enter_on_space: enter_on_space {
             compatible = "zmk,behavior-mod-morph";
             label = "ENTER_ON_SPACE";
@@ -222,7 +213,8 @@
                 <&macro_tap>,
                 <&kp KP_NUMBER_6 &kp KP_NUMBER_0>,
                 <&macro_release>,
-                <&kp LEFT_ALT>;
+                <&kp LEFT_ALT>,
+                <&macro_press>;
 
             label = "LESS_THAN";
         };
@@ -654,11 +646,26 @@
                 <&macro_press>,
                 <&kp LEFT_ALT>,
                 <&macro_tap>,
-                <&kp N2 &kp N4 &kp N1>,
+                <&kp LS(T) &kp Y &kp P &kp E &kp SPACE &kp S &kp O &kp M &kp E &kp T &kp H &kp I &kp N &kp G &kp DOT &kp DOT &kp DOT>,
                 <&macro_release>,
                 <&kp LEFT_ALT>;
 
             label = "MP_STR_TEST";
+        };
+
+        mp_str_test_2: mp_str_test_2 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_tap_time 1>,
+                <&macro_press>,
+                <&kp LEFT_ALT>,
+                <&macro_tap>,
+                <&kp LS(T) &kp Y &kp P &kp E &kp SPACE &kp S &kp O &kp M &kp E &kp T &kp H &kp I &kp N &kp G &kp DOT &kp DOT &kp DOT>,
+                <&macro_release>,
+                <&kp LEFT_ALT>;
+
+            label = "MP_STR_TEST_2";
         };
     };
 
@@ -687,7 +694,7 @@
             bindings = <
         &kp F2          &kp F3          &kp F4          &kp F5      &kp F6       &kp F7         &kp F8             &kp F9     &kp F10       &kp F11
         &kp N0          &kp N1          &kp N2          &kp N3      &kp N4       &kp PG_UP      &kp LEFT           &kp UP     &kp RIGHT     &kp LEFT_SHIFT
-&trans  &td_qw_bracket  &td_ro_bracket  &td_sq_bracket  &td_quotes  &td_doots    &kp PAGE_DOWN  &kp RIGHT_BRACKET  &kp DOWN   &mp_str_test  &mp_ru_e        &kp F12
+&trans  &td_qw_bracket  &td_ro_bracket  &td_sq_bracket  &td_quotes  &td_doots    &kp PAGE_DOWN  &kp RIGHT_BRACKET  &kp DOWN   &mp_str_test  &mp_str_test_2  &kp F12
                                         &trans          &trans      &trans       &none          &kp LG(P)          &kp LG(L)
             >;
         };
