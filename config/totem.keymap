@@ -157,12 +157,12 @@
             bindings = <&mp_s_quote>, <&mp_d_quote>;
         };
 
-        td_marks: td_marks {
+        td_gr_tild: td_gr_tild {
             compatible = "zmk,behavior-tap-dance";
-            label = "TD_MARKS";
+            label = "TD_GR_TILD";
             #binding-cells = <0>;
             tapping-term-ms = <250>;
-            bindings = <&mp_exclamation>, <&mp_question>;
+            bindings = <&mp_grave>, <&mp_tilda>;
         };
 
         td_plus_minus: td_plus_minus {
@@ -180,17 +180,41 @@
             tapping-term-ms = <250>;
             bindings = <&mp_slash>, <&mp_backslash>;
         };
+
+        td_le: td_le {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TD_LE";
+            #binding-cells = <0>;
+            tapping-term-ms = <250>;
+            bindings = <&mp_less_than>, <&mp_less_eq>;
+        };
+
+        td_me: td_me {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TD_ME";
+            #binding-cells = <0>;
+            tapping-term-ms = <250>;
+            bindings = <&mp_more_than>, <&mp_more_eq>;
+        };
+
+        td_ru_e: td_ru_e {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TD_RU_E";
+            #binding-cells = <0>;
+            tapping-term-ms = <250>;
+            bindings = <&mp_dollar>, <&mp_ru_e>;
+        };
     };
 
     macros {
-        next_str_in_list: next_str_in_list {
+        mp_next_str_in_list: next_str_in_list {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings = <&kp SQT &kp COMMA &kp SPACE &kp SQT>;
             label = "NEXT_STR_IN_LIST";
         };
 
-        dict_value: dict_value {
+        mp_next_dict_value: dict_value {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings = <&kp SQT &kp COLON &kp SPACE>;
@@ -213,8 +237,7 @@
                 <&macro_tap>,
                 <&kp KP_NUMBER_6 &kp KP_NUMBER_0>,
                 <&macro_release>,
-                <&kp LEFT_ALT>,
-                <&macro_press>;
+                <&kp LEFT_ALT>;
 
             label = "LESS_THAN";
         };
@@ -639,33 +662,32 @@
             label = "MP_RU_E";
         };
 
-        mp_str_test: mp_str_test {
+        mp_less_eq: mp_less_eq {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings =
-                <&macro_press>,
-                <&kp LEFT_ALT>,
-                <&macro_tap>,
-                <&kp LS(T) &kp Y &kp P &kp E &kp SPACE &kp S &kp O &kp M &kp E &kp T &kp H &kp I &kp N &kp G &kp DOT &kp DOT &kp DOT>,
-                <&macro_release>,
-                <&kp LEFT_ALT>;
-
-            label = "MP_STR_TEST";
+            bindings = <&mp_less_than &mp_equal>;
+            label = "MP_LESS_EQ";
         };
 
-        mp_str_test_2: mp_str_test_2 {
+        mp_more_eq: mp_more_eq {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&mp_more_than &mp_equal>;
+            label = "MP_MORE_EQ";
+        };
+
+        mp_tilda: mp_tilda {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings =
-                <&macro_tap_time 1>,
                 <&macro_press>,
                 <&kp LEFT_ALT>,
                 <&macro_tap>,
-                <&kp LS(T) &kp Y &kp P &kp E &kp SPACE &kp S &kp O &kp M &kp E &kp T &kp H &kp I &kp N &kp G &kp DOT &kp DOT &kp DOT>,
+                <&kp KP_NUMBER_1 &kp KP_NUMBER_2 &kp KP_NUMBER_6>,
                 <&macro_release>,
                 <&kp LEFT_ALT>;
 
-            label = "MP_STR_TEST_2";
+            label = "MP_TILDA";
         };
     };
 
@@ -683,19 +705,19 @@
 
         numbers {
             bindings = <
-        &mp_grave       &td_marks       &mp_at          &mp_hash      &mp_dollar    &mp_percent     &mp_caret      &mp_ampersand  &mp_star  &td_slash_back
-        &kp N0          &kp N1          &kp N2          &kp N3        &kp N4        &kp N5          &kp N6         &kp N7         &kp N8    &kp N9
-&trans  &td_qw_bracket  &td_ro_bracket  &td_sq_bracket  &td_quotes    &td_doots     &mp_less_than   &mp_more_than  &mp_comma      &mp_dot   &mp_question    &mp_pipe
-                                        &kp KP_NUM      &kp CAPSLOCK  &trans        &td_plus_minus  &trans         &mp_equal
+        &td_gr_tild     &mp_exclamation  &mp_at          &mp_hash      &td_ru_e     &mp_percent     &mp_caret  &mp_ampersand  &mp_star  &td_slash_back
+        &kp N0          &kp N1           &kp N2          &kp N3        &kp N4       &kp N5          &kp N6     &kp N7         &kp N8    &kp N9
+&trans  &td_qw_bracket  &td_ro_bracket   &td_sq_bracket  &td_quotes    &td_doots    &td_le          &td_me     &mp_comma      &mp_dot   &mp_question    &mp_pipe
+                                         &kp KP_NUM      &kp CAPSLOCK  &trans       &td_plus_minus  &trans     &mp_equal
             >;
         };
 
         symbols {
             bindings = <
-        &kp F2          &kp F3          &kp F4          &kp F5      &kp F6       &kp F7         &kp F8             &kp F9     &kp F10       &kp F11
-        &kp N0          &kp N1          &kp N2          &kp N3      &kp N4       &kp PG_UP      &kp LEFT           &kp UP     &kp RIGHT     &kp LEFT_SHIFT
-&trans  &td_qw_bracket  &td_ro_bracket  &td_sq_bracket  &td_quotes  &td_doots    &kp PAGE_DOWN  &kp RIGHT_BRACKET  &kp DOWN   &mp_str_test  &mp_str_test_2  &kp F12
-                                        &trans          &trans      &trans       &none          &kp LG(P)          &kp LG(L)
+        &kp F2          &kp F3          &kp F4          &kp F5      &kp F6       &kp F7         &kp F8             &kp F9     &kp F10    &kp F11
+        &kp N0          &kp N1          &kp N2          &kp N3      &kp N4       &kp PG_UP      &kp LEFT           &kp UP     &kp RIGHT  &kp LEFT_SHIFT
+&trans  &td_qw_bracket  &td_ro_bracket  &td_sq_bracket  &td_quotes  &td_doots    &kp PAGE_DOWN  &kp RIGHT_BRACKET  &kp DOWN   &mp_dot    &mp_question    &kp F12
+                                        &trans          &trans      &trans       &trans         &kp LG(P)          &kp LG(L)
             >;
         };
     };
