@@ -209,6 +209,14 @@
             tapping-term-ms = <250>;
             bindings = <&mp_dollar>, <&mp_ru_e>;
         };
+
+        td_set: td_set {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TD_SET";
+            #binding-cells = <0>;
+            tapping-term-ms = <250>;
+            bindings = <&kp SPACE>, <&mp_space_enter>, <&mp_space_enter_tab>;
+        };
     };
 
     macros {
@@ -709,18 +717,38 @@
             label = "MP_RU_B";
         };
 
-        sql_sel: sql_sel {
+        mp_space_enter: mp_space_enter {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&caps_word &kp S &kp E &kp L &kp E &kp C &kp T &kp RETURN &kp TAB>;
-            label = "SQL_SEL";
+            bindings = <&kp SPACE &kp ENTER>;
+            label = "MP_SPACE_ENTER";
         };
 
-        sql_fro: sql_fro {
+        mp_space_enter_tab: mp_space_enter_tab {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&caps_word &kp F &kp R &kp O &kp M &kp RETURN &kp TAB>;
-            label = "SQL_FRO";
+            bindings = <&kp SPACE &kp ENTER &kp TAB>;
+            label = "MP_SPACE_ENTER_TAB";
+        };
+
+        sql_select: sql_select {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_tap_time 30>,
+                <&caps_word &kp S &kp E &kp L &kp E &kp C &kp T &mp_space_enter_tab>;
+
+            label = "SQL_SELECT";
+        };
+
+        sql_from: sql_from {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_tap_time 30>,
+                <&caps_word &kp F &kp R &kp O &kp M &mp_space_enter_tab>;
+
+            label = "SQL_FROM";
         };
     };
 
@@ -756,10 +784,10 @@
 
         sql_macro {
             bindings = <
-        &trans  &trans    &trans  &trans    &trans    &trans  &trans  &trans  &trans  &trans
-        &none   &sql_sel  &trans  &sql_fro  &trans    &trans  &trans  &trans  &trans  &none
-&trans  &trans  &trans    &trans  &trans    &trans    &trans  &trans  &trans  &trans  &trans  &trans
-                          &trans  &trans    &trans    &trans  &trans  &trans
+        &trans  &trans       &trans  &trans     &trans    &trans  &trans  &trans  &trans  &trans
+        &none   &sql_select  &trans  &sql_from  &trans    &trans  &trans  &trans  &trans  &none
+&trans  &trans  &trans       &trans  &trans     &trans    &trans  &trans  &trans  &trans  &trans  &trans
+                             &trans  &trans     &trans    &trans  &trans  &trans
             >;
 
             label = "sql";
