@@ -58,7 +58,7 @@
 
         sql_layer {
             bindings = <&mo 3>;
-            key-positions = <10 19>;
+            key-positions = <33 36>;
         };
     };
 
@@ -735,7 +735,7 @@
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings =
-                <&macro_tap_time 30>,
+                <&macro_tap_time 10>,
                 <&caps_word &kp S &kp E &kp L &kp E &kp C &kp T &mp_space_enter_tab>;
 
             label = "SQL_SELECT";
@@ -745,7 +745,7 @@
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings =
-                <&macro_tap_time 30>,
+                <&macro_tap_time 10>,
                 <&caps_word &kp F &kp R &kp O &kp M &mp_space_enter_tab>;
 
             label = "SQL_FROM";
@@ -775,10 +775,10 @@
 
         symbols {
             bindings = <
-        &kp F2          &kp F3          &kp F4          &kp F5      &kp F6       &kp F7         &kp F8     &kp F9     &kp F10    &kp F11
-        &kp N0          &kp N1          &kp N2          &kp N3      &kp N4       &kp PG_UP      &kp LEFT   &kp UP     &kp RIGHT  &kp LEFT_SHIFT
-&trans  &td_qw_bracket  &td_ro_bracket  &td_sq_bracket  &td_quotes  &td_doots    &kp PAGE_DOWN  &mp_ru_b   &kp DOWN   &mp_dot    &mp_question    &kp F12
-                                        &trans          &trans      &trans       &trans         &kp LG(P)  &kp LG(L)
+        &kp F2          &kp F3          &kp F4          &kp F5                &kp F6                 &kp F7         &kp F8     &kp F9     &kp F10    &kp F11
+        &kp N0          &kp N1          &kp N2          &kp N3                &kp N4                 &kp PG_UP      &kp LEFT   &kp UP     &kp RIGHT  &kp LEFT_SHIFT
+&trans  &td_qw_bracket  &td_ro_bracket  &td_sq_bracket  &mp_next_str_in_list  &mp_next_dict_value    &kp PAGE_DOWN  &mp_ru_b   &kp DOWN   &mp_dot    &mp_question    &kp F12
+                                        &trans          &trans                &trans                 &trans         &kp LG(P)  &kp LG(L)
             >;
         };
 
