@@ -689,6 +689,20 @@
 
             label = "MP_TILDA";
         };
+
+        mp_ru_b: mp_ru_b {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press>,
+                <&kp LEFT_ALT>,
+                <&macro_tap>,
+                <&kp KP_NUMBER_0 &kp KP_NUMBER_2 &kp KP_NUMBER_5 &kp KP_NUMBER_0>,
+                <&macro_release>,
+                <&kp LEFT_ALT>;
+
+            label = "MP_RU_B";
+        };
     };
 
     keymap {
@@ -714,10 +728,10 @@
 
         symbols {
             bindings = <
-        &kp F2          &kp F3          &kp F4          &kp F5      &kp F6       &kp F7         &kp F8             &kp F9     &kp F10    &kp F11
-        &kp N0          &kp N1          &kp N2          &kp N3      &kp N4       &kp PG_UP      &kp LEFT           &kp UP     &kp RIGHT  &kp LEFT_SHIFT
-&trans  &td_qw_bracket  &td_ro_bracket  &td_sq_bracket  &td_quotes  &td_doots    &kp PAGE_DOWN  &kp RIGHT_BRACKET  &kp DOWN   &mp_dot    &mp_question    &kp F12
-                                        &trans          &trans      &trans       &trans         &kp LG(P)          &kp LG(L)
+        &kp F2          &kp F3          &kp F4          &kp F5      &kp F6       &kp F7         &kp F8     &kp F9     &kp F10    &kp F11
+        &kp N0          &kp N1          &kp N2          &kp N3      &kp N4       &kp PG_UP      &kp LEFT   &kp UP     &kp RIGHT  &kp LEFT_SHIFT
+&trans  &td_qw_bracket  &td_ro_bracket  &td_sq_bracket  &td_quotes  &td_doots    &kp PAGE_DOWN  &mp_ru_b   &kp DOWN   &mp_dot    &mp_question    &kp F12
+                                        &trans          &trans      &trans       &trans         &kp LG(P)  &kp LG(L)
             >;
         };
     };
