@@ -93,8 +93,8 @@
             bindings = <&lt 1 SPACE>, <&kp ENTER>;
 
             #binding-cells = <0>;
-            mods = <(MOD_LCTL|MOD_LSFT|MOD_RSFT|MOD_RCTL)>;
-            keep-mods = <(MOD_LSFT|MOD_RSFT)>;
+            mods = <(MOD_LCTL|MOD_LSFT|MOD_RSFT|MOD_RCTL|MOD_LALT)>;
+            keep-mods = <(MOD_LSFT|MOD_RSFT|MOD_LALT)>;
         };
 
         undo_on_delete: undo_on_delete {
