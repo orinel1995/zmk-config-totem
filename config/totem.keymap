@@ -55,11 +55,6 @@
             bindings = <&bt BT_SEL 2>;
             key-positions = <2 12 23>;
         };
-
-        sql_layer {
-            bindings = <&mo 3>;
-            key-positions = <33 36>;
-        };
     };
 
     behaviors {
@@ -210,12 +205,23 @@
             bindings = <&mp_dollar>, <&mp_ru_e>;
         };
 
-        td_set: td_set {
+        td_left_mod: td_left_mod {
             compatible = "zmk,behavior-tap-dance";
-            label = "TD_SET";
+            label = "TD_LEFT_MOD";
             #binding-cells = <0>;
-            tapping-term-ms = <250>;
-            bindings = <&kp SPACE>, <&mp_space_enter>, <&mp_space_enter_tab>;
+            bindings = <&kp LCTRL>, <&ht_shift_caps LEFT_SHIFT 0>;
+        };
+
+        ht_shift_caps: ht_shift_caps {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HT_SHIFT_CAPS";
+            bindings = <&kp>, <&caps_word>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+            quick-tap-ms = <100>;
+            flavor = "tap-preferred";
+            hold-while-undecided;
         };
     };
 
@@ -766,10 +772,10 @@
 
         numbers {
             bindings = <
-        &td_gr_tild     &mp_exclamation  &mp_at          &mp_hash      &td_ru_e     &mp_percent     &mp_caret  &mp_ampersand  &mp_star  &td_slash_back
-        &kp N0          &kp N1           &kp N2          &kp N3        &kp N4       &kp N5          &kp N6     &kp N7         &kp N8    &kp N9
-&trans  &td_qw_bracket  &td_ro_bracket   &td_sq_bracket  &td_quotes    &td_doots    &td_le          &td_me     &mp_comma      &mp_dot   &mp_question    &mp_pipe
-                                         &kp KP_NUM      &kp CAPSLOCK  &trans       &td_plus_minus  &trans     &mp_equal
+              &td_gr_tild     &mp_exclamation  &mp_at          &mp_hash      &td_ru_e     &mp_percent     &mp_caret  &mp_ampersand  &mp_star  &td_slash_back
+              &kp N0          &kp N1           &kp N2          &kp N3        &kp N4       &kp N5          &kp N6     &kp N7         &kp N8    &kp N9
+&td_left_mod  &td_qw_bracket  &td_ro_bracket   &td_sq_bracket  &td_quotes    &td_doots    &td_le          &td_me     &mp_comma      &mp_dot   &mp_question    &mp_pipe
+                                               &kp KP_NUM      &kp CAPSLOCK  &trans       &td_plus_minus  &trans     &mp_equal
             >;
         };
 
@@ -780,17 +786,6 @@
 &trans  &td_qw_bracket  &td_ro_bracket  &td_sq_bracket  &mp_next_str_in_list  &mp_next_dict_value    &kp PAGE_DOWN  &mp_ru_b   &kp DOWN   &mp_dot    &mp_question    &kp F12
                                         &trans          &trans                &trans                 &trans         &kp LG(P)  &kp LG(L)
             >;
-        };
-
-        sql_macro {
-            bindings = <
-        &trans  &trans       &trans  &trans     &trans    &trans  &trans  &trans  &trans  &trans
-        &none   &sql_select  &trans  &sql_from  &trans    &trans  &trans  &trans  &trans  &none
-&trans  &trans  &trans       &trans  &trans     &trans    &trans  &trans  &trans  &trans  &trans  &trans
-                             &trans  &trans     &trans    &trans  &trans  &trans
-            >;
-
-            label = "sql";
         };
     };
 
