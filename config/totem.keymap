@@ -209,7 +209,9 @@
             compatible = "zmk,behavior-tap-dance";
             label = "TD_LEFT_MOD";
             #binding-cells = <0>;
-            bindings = <&kp LCTRL>, <&ht_shift_caps LEFT_SHIFT 0>;
+            bindings =
+                <&mods_on_left_0 LCTRL LEFT_SHIFT>,
+                <&ht_shift_caps LEFT_SHIFT 0>;
         };
 
         ht_shift_caps: ht_shift_caps {
@@ -763,19 +765,19 @@
 
         letters {
             bindings = <
-                                  &q_esc  &kp W  &kp E             &kp R            &kp T              &kp Y        &kp U          &kp I                          &kp O    &kp P
-                                  &kp A   &kp S  &kp D             &kp F            &kp G              &kp H        &kp J          &kp K                          &kp L    &kp SEMICOLON
-&mods_on_left_0 LCTRL LEFT_SHIFT  &kp Z   &kp X  &kp C             &kp V            &kp B              &kp N        &kp M          &kp COMMA                      &kp DOT  &kp LEFT_BRACKET  &kp SQT
-                                                 &mm_altab_on_alt  &undo_on_delete  &enter_on_space    &hidden_tab  &kp BACKSPACE  &mt LEFT_SHIFT LA(LEFT_SHIFT)
+              &q_esc  &kp W  &kp E             &kp R            &kp T              &kp Y        &kp U          &kp I                          &kp O    &kp P
+              &kp A   &kp S  &kp D             &kp F            &kp G              &kp H        &kp J          &kp K                          &kp L    &kp SEMICOLON
+&td_left_mod  &kp Z   &kp X  &kp C             &kp V            &kp B              &kp N        &kp M          &kp COMMA                      &kp DOT  &kp LEFT_BRACKET  &kp SQT
+                             &mm_altab_on_alt  &undo_on_delete  &enter_on_space    &hidden_tab  &kp BACKSPACE  &mt LEFT_SHIFT LA(LEFT_SHIFT)
             >;
         };
 
         numbers {
             bindings = <
-              &td_gr_tild     &mp_exclamation  &mp_at          &mp_hash      &td_ru_e     &mp_percent     &mp_caret  &mp_ampersand  &mp_star  &td_slash_back
-              &kp N0          &kp N1           &kp N2          &kp N3        &kp N4       &kp N5          &kp N6     &kp N7         &kp N8    &kp N9
-&td_left_mod  &td_qw_bracket  &td_ro_bracket   &td_sq_bracket  &td_quotes    &td_doots    &td_le          &td_me     &mp_comma      &mp_dot   &mp_question    &mp_pipe
-                                               &kp KP_NUM      &kp CAPSLOCK  &trans       &td_plus_minus  &trans     &mp_equal
+        &td_gr_tild     &mp_exclamation  &mp_at          &mp_hash      &td_ru_e     &mp_percent     &mp_caret  &mp_ampersand  &mp_star  &td_slash_back
+        &kp N0          &kp N1           &kp N2          &kp N3        &kp N4       &kp N5          &kp N6     &kp N7         &kp N8    &kp N9
+&trans  &td_qw_bracket  &td_ro_bracket   &td_sq_bracket  &td_quotes    &td_doots    &td_le          &td_me     &mp_comma      &mp_dot   &mp_question    &mp_pipe
+                                         &kp KP_NUM      &kp CAPSLOCK  &trans       &td_plus_minus  &trans     &mp_equal
             >;
         };
 
