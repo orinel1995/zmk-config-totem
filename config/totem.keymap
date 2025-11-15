@@ -241,11 +241,11 @@
             label = "DICT_VALUE";
         };
 
-        select_current_word: select_current_word {
+        mp_select_current_word: mp_select_current_word {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings = <&kp LC(LEFT) &kp LC(LS(RIGHT))>;
-            label = "SELECT_CURRENT_WORD";
+            label = "MP_SELECT_CURRENT_WORD";
         };
 
         mp_less_than: less_than {
@@ -732,7 +732,7 @@
             bindings = <
                                   &q_esc  &kp W  &kp E             &kp R            &kp T              &kp Y        &kp U          &kp I                          &kp O    &kp P
                                   &kp A   &kp S  &kp D             &kp F            &kp G              &kp H        &kp J          &kp K                          &kp L    &kp SEMICOLON
-&mods_on_left_0 LCTRL LEFT_SHIFT  &kp Z   &kp X  &kp C             &kp V            &kp B              &kp N        &kp M          &kp COMMA                      &kp DOT  &kp LEFT_BRACKET  &kp SQT
+&mods_on_left_0 LCTRL LEFT_SHIFT  &kp Z   &kp X  &kp C             &kp V            &kp B              &kp N        &kp M          &kp COMMA                      &kp DOT  &kp LEFT_BRACKET  &mt LEFT_GUI SQT
                                                  &mm_altab_on_alt  &undo_on_delete  &enter_on_space    &hidden_tab  &kp BACKSPACE  &mt LEFT_SHIFT LA(LEFT_SHIFT)
             >;
         };
@@ -746,11 +746,11 @@
             >;
         };
 
-        symbols {
+        navigation {
             bindings = <
         &kp F2          &kp F3          &kp F4          &kp F5                &kp F6                 &kp F7         &kp F8     &kp F9     &kp F10    &kp F11
         &kp N0          &kp N1          &kp N2          &kp N3                &kp N4                 &kp PG_UP      &kp LEFT   &kp UP     &kp RIGHT  &kp LEFT_SHIFT
-&trans  &td_qw_bracket  &td_ro_bracket  &td_sq_bracket  &mp_next_str_in_list  &mp_next_dict_value    &kp PAGE_DOWN  &mp_ru_b   &kp DOWN   &mp_dot    &mp_question    &kp F12
+&trans  &td_qw_bracket  &td_ro_bracket  &td_sq_bracket  &mp_next_str_in_list  &mp_next_dict_value    &kp PAGE_DOWN  &mp_ru_b   &kp DOWN   &mp_dot    &mp_question    &trans
                                         &trans          &trans                &trans                 &trans         &kp LG(P)  &kp LG(L)
             >;
         };
